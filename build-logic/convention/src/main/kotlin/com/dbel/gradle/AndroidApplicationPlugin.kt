@@ -25,8 +25,8 @@ class AndroidApplicationPlugin : Plugin<Project> {
             }
 
             extensions.configure<BaseAppModuleExtension> {
-                buildToolsVersion = "33.0.0"
-                compileSdk = 33
+                buildToolsVersion = "34.0.0"
+                compileSdk = 34
 
                 defaultConfig { minSdk = 24 }
 

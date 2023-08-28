@@ -25,11 +25,11 @@ class AndroidLibraryPlugin : Plugin<Project> {
         }
 
         android {
-            compileSdk = 33
-            buildToolsVersion = "33.0.0"
+            compileSdk = 34
+            buildToolsVersion = "34.0.0"
 
             defaultConfig {
-                targetSdk = 33
+                targetSdk = 34
                 minSdk = 24
             }
 
