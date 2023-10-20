@@ -1,5 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 // TODO Rename the root project name
 rootProject.name = "template-android"
 
@@ -23,7 +25,14 @@ dependencyResolutionManagement {
     }
 }
 
-/* Modules in the project */
-include(":app")
-// TODO Rename the module name
+/* Foundation modules */
+include("foundation:design-system")
+
+/* Templates ready to use */
+include("templates:empty-app")
+
+/* Example apps */
+include("examples:permissions")
+
+// TODO Rename the module name - This should be inside feature:lib
 include(":lib")
