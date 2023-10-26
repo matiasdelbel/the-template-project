@@ -26,10 +26,22 @@ dependencyResolutionManagement {
 }
 
 /* Foundation modules */
-include("foundation:design-system")
+include(
+    "foundation:data",
+    "foundation:design-system"
+)
 
 /* Templates ready to use */
 include("templates:empty-app")
+
+/* Apps */
+include(
+    "apps:playground",
+
+    "apps:demo-app",
+    "apps:tmdb-app",
+    "apps:rijks-app"
+)
 
 /* Example apps */
 include("examples:permissions")
