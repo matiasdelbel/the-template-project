@@ -30,7 +30,7 @@ class AndroidLibraryPlugin : Plugin<Project> {
 
             defaultConfig {
                 targetSdk = 34
-                minSdk = 24
+                minSdk = 26
             }
 
             compileOptions {

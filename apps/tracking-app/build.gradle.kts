@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.demo.app"
+    namespace = "com.tracking.app"
 
     defaultConfig {
         vectorDrawables { useSupportLibrary = true }
@@ -25,10 +25,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.tmdbApp)
-    implementation(projects.apps.rijksApp)
-    implementation(projects.apps.trackingApp)
-
+    implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 
     implementation(libs.androidx.core.ktx)

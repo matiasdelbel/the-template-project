@@ -40,7 +40,8 @@ include(
 
     "apps:demo-app",
     "apps:tmdb-app",
-    "apps:rijks-app"
+    "apps:rijks-app",
+    "apps:tracking-app"
 )
 
 /* Example apps */

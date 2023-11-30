@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="day_summary_flexibility">Flexibility</string>
+    <string name="day_summary_flexibility_caption">Minutes per day.</string>
+    <string name="day_summary_fruits">Fruits</string>
+    <string name="day_summary_fruits_caption">Pieces per day of any type of fruit.</string>
+    <string name="day_summary_water">Water</string>
+    <string name="day_summary_water_caption">Bottles per day of 500 ml.</string>
+    <string name="day_summary_mins">%1$s mins</string>
+    <string name="day_summary_number_of_bottles">%1$s bottles</string>
+    <string name="day_summary_pieces_of_fruit">%1$s piece</string>
+
+    <string name="week_summary_number">Week %1$s</string>
+</resources>

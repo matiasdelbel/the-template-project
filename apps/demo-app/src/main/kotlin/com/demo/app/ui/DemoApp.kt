@@ -17,6 +17,8 @@ import com.rijks.app.rijksScreenList
 import com.rijks.app.ui.ArtCollectionRoute
 import com.tmdb.app.tmDbScreenList
 import com.tmdb.app.ui.PopularMovieCollectionRoute
+import com.tracking.app.trackingAppScreenList
+import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,6 +34,7 @@ fun DemoApp(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
                     AppSelectorRoute -> stringResource(R.string.app_name)
                     ArtCollectionRoute -> stringResource(R.string.rijks_app_name)
                     PopularMovieCollectionRoute -> stringResource(R.string.tmdb_app_name)
+                    WeekListSummaryScreenRoute -> stringResource(R.string.tracking_app_name)
                     else -> ""
                 },
                 colors = when (currentDestination.route) {
@@ -46,7 +49,13 @@ fun DemoApp(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
         demoAppScreenList(navController)
         rijksScreenList(navController)
         tmDbScreenList()
+        trackingAppScreenList(navController)
     }
 }
 
-val routesWithPrimaryTopAppBar = listOf(AppSelectorRoute, ArtCollectionRoute, PopularMovieCollectionRoute)
+val routesWithPrimaryTopAppBar = listOf(
+    AppSelectorRoute,
+    ArtCollectionRoute,
+    PopularMovieCollectionRoute,
+    WeekListSummaryScreenRoute,
+)

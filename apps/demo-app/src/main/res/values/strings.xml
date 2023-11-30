@@ -3,6 +3,7 @@
 
     <string name="rijks_app_name">Rijks App</string>
     <string name="tmdb_app_name">TMdb App</string>
+    <string name="tracking_app_name">Tracking App</string>
 
     <string name="art_object">Art Object</string>
     <string name="art_object_image_placeholder">Art object image placeholder</string>

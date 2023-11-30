@@ -28,7 +28,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
                 buildToolsVersion = "34.0.0"
                 compileSdk = 34
 
-                defaultConfig { minSdk = 24 }
+                defaultConfig { minSdk = 26 }
 
                 compileOptions {
                     sourceCompatibility = JavaVersion.VERSION_17

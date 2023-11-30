@@ -11,6 +11,7 @@ data class Paddings(
     val small: Dp = Dp.Unspecified,
     val medium: Dp = Dp.Unspecified,
     val large: Dp = Dp.Unspecified,
+    val extraLarge: Dp = Dp.Unspecified,
 )
 
 val LocalPaddings = staticCompositionLocalOf { Paddings() }
@@ -20,4 +21,5 @@ internal val DefaultPaddings = Paddings(
     small = 8.dp,
     medium = 16.dp,
     large = 32.dp,
+    extraLarge = 48.dp,
 )
