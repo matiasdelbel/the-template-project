@@ -4,9 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyGridScope
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.Card
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -21,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
@@ -34,34 +32,27 @@ import com.tmdb.app.R
 @Composable
 fun MovieCollection(
     artObjects: LazyPagingItems<Movie>,
-    modifier: Modifier = Modifier,
-) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(count = 2),
-        modifier = modifier
-    ) {
-        items(artObjects.itemCount) { index ->
-            val artObject = artObjects[index]!!
+    modifier: Modifier = Modifier.padding(horizontal = AppTheme.paddings.small),
+) = LazyColumn(modifier = modifier) {
+    items(artObjects.itemCount) { index ->
+        val artObject = artObjects[index]!!
 
-            Movie(
-                imageUrl = artObject.posterPath,
-                contentDescription = artObject.title,
-                imageLabel = artObject.title,
-            )
-        }
-
-        refreshLoadState(artObjects)
+        Movie(
+            imageUrl = artObject.posterPath,
+            contentDescription = artObject.title,
+        )
     }
+
+    refreshLoadState(artObjects)
 }
 
 @Composable
 fun Movie(
     imageUrl: String,
     contentDescription: String,
-    imageLabel: String,
     modifier: Modifier = Modifier,
 ) = Card(
-    modifier = modifier.padding(all = AppTheme.paddings.extraSmall)
+    modifier = modifier.padding(vertical = AppTheme.paddings.small)
 ) {
     Column {
         AsyncImage(
@@ -70,18 +61,10 @@ fun Movie(
             contentScale = ContentScale.FillWidth,
             contentDescription = contentDescription,
         )
-
-        Text(
-            text = imageLabel,
-            style = MaterialTheme.typography.titleSmall,
-            overflow = TextOverflow.Ellipsis,
-            maxLines = 1,
-            modifier = Modifier.padding(all = AppTheme.paddings.medium)
-        )
     }
 }
 
-fun LazyGridScope.refreshLoadState(items: LazyPagingItems<Movie>) = items.apply {
+fun LazyListScope.refreshLoadState(items: LazyPagingItems<Movie>) = items.apply {
     when {
         loadState.refresh is LoadState.Loading -> {
             item { Artist(name = stringResource(id = R.string.loading_art_collection)) }
