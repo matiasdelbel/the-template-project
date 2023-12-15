@@ -12,8 +12,6 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import com.dbel.design.system.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,7 +27,7 @@ fun TopAppBar(
         if (isNavigationIconVisible) IconButton(onClick = { onNavigateUp() }) {
             Icon(
                 imageVector = Icons.Default.Close,
-                contentDescription = stringResource(id = R.string.close),
+                contentDescription = null
             )
         }
     },

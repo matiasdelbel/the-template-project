@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Examples App</string>
+    <string name="tmdb_app_name">The Movies DB</string>
 
-    <string name="rijks_app_name">Rijks App</string>
-    <string name="tmdb_app_name">TMdb App</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="populars">Populars</string>
 
     <string name="art_object">Art Object</string>
     <string name="art_object_image_placeholder">Art object image placeholder</string>

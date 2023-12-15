@@ -1,7 +1,9 @@
 package com.dbel.design.system.ui
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -19,7 +21,9 @@ fun NavHostScaffold(
     navController: NavHostController,
     startRoute: String,
     modifier: Modifier = Modifier,
+    contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
     topBar: @Composable (current: NavDestination) -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
     builder: NavGraphBuilder.() -> Unit = {}
 ) {
     var currentDestination by remember { mutableStateOf(navController.currentDestination) }
@@ -31,7 +35,9 @@ fun NavHostScaffold(
     }
 
     Scaffold(
-        topBar = { currentDestination?.let{ topBar(it) } },
+        topBar = { currentDestination?.let { topBar(it) } },
+        bottomBar = bottomBar,
+        contentWindowInsets = contentWindowInsets,
         modifier = modifier
     ) { contentPadding ->
         NavHost(

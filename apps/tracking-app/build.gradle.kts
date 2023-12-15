@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.viewmodel)
+    implementation("androidx.compose.material:material:1.5.4")
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.compose)

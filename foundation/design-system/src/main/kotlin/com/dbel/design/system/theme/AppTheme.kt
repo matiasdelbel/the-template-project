@@ -24,8 +24,8 @@ object AppTheme {
 
 @Composable
 fun AppTheme(
-    darkColorScheme: ColorScheme = DarkColorScheme,
-    lightColorScheme: ColorScheme = LightColorScheme,
+    darkColorScheme: ColorScheme = PurpleColorScheme.darkColorScheme(),
+    lightColorScheme: ColorScheme = PurpleColorScheme.lightColorScheme(),
     paddings: Paddings = DefaultPaddings,
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true, // Dynamic color is available on Android 12+

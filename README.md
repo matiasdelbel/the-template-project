@@ -1,19 +1,24 @@
 # Template Android
-A sample project ready to clone and start development cool features.
+A sample project using composable components. The projects contains a `app-container` app, in which
+the applications can be loaded.
 
-The project contains a `buil-logic` folder, which defines a set of plugins to speed up the 
-development:
-- `com.dbel.android.application`: Set up the basic configuration for an android app.
-- `com.dbel.android.library`: Set up the basic configuration for an android module.
-- `com.dbel.android.library.compose`: Set up the basic configuration for an android compose module.
-- `com.dbel.android.application.compose`: Set up the basic configuration for an android compose app.
+There are also several projects under the `apps` folder. You can replace them in the container
+to test them. The following steps are needed:
 
-The project also defines a `version catalog` as a centralized place for all the dependencies.
+1. Add the dependency into the `app-container` module
 
-## Adoption
-The project defines a set of enumerated TODOs. Pleas find all of them and update accordingly to
-your project needs.
-
+```kotlin
+dependencies {
+    implementation(projects.apps.showcaseApp) // Replace with the right dependency name
+    
+    // Other dependencies
+}
 ```
-TODO Replace the README content.
+
+2. Replace on the `MainActivity` the name of the composable function to lunch, that acts as single
+entry point of the app.
+
+```kotlin
+@Composable
+fun AppContent() = DemoApp() // Replace DemoApp with the name of the right function 
 ```

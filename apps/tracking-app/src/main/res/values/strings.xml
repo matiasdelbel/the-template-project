@@ -11,4 +11,7 @@
     <string name="day_summary_pieces_of_fruit">%1$s piece</string>
 
     <string name="week_summary_number">Week %1$s</string>
+
+    <string name="home_tracking">Track</string>
+    <string name="home_profile">Profile</string>
 </resources>

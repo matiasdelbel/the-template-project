@@ -15,8 +15,7 @@ internal class ArtCollectionModule {
     @Provides
     fun provideRemoteDataSource(
         @RijksRetrofit retrofit: Retrofit
-    ): ArtCollectionDataSource = retrofit
-        .create(ArtCollectionDataSource::class.java)
+    ): ArtCollectionDataSource = retrofit.create(ArtCollectionDataSource::class.java)
 
     @Provides
     fun provideCollectionRepository(artCollectionDataSource: ArtCollectionDataSource): ArtCollectionRepository =

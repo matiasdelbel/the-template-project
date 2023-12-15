@@ -9,11 +9,11 @@ internal class PopularMoviesPagingSource(
 ) : ListedPagingSource<Movie>() {
 
     override suspend fun loadMore(params: LoadParams<Int>): LoadListingResult<Movie> {
-        val popularMovies = movieCollectionDataSource.getPopulars(page = params.currentPage)
+        val movies = movieCollectionDataSource.populars(page = params.currentPage)
 
         return LoadListingResult(
-            content = popularMovies.results.map { it.toMovie() },
-            count = popularMovies.totalPages.toLong()
+            content = movies.results.map { it.toMovie() },
+            count = movies.totalPages
         )
     }
 }

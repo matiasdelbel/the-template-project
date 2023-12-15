@@ -1,11 +1,14 @@
 package com.tmdb.app.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyGridScope
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -15,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,19 +35,27 @@ import com.tmdb.app.R
 
 @Composable
 fun MovieCollection(
-    artObjects: LazyPagingItems<Movie>,
-    modifier: Modifier = Modifier.padding(horizontal = AppTheme.paddings.small),
-) = LazyColumn(modifier = modifier) {
-    items(artObjects.itemCount) { index ->
-        val artObject = artObjects[index]!!
+    movies: LazyPagingItems<Movie>,
+    modifier: Modifier = Modifier,
+) = LazyVerticalGrid(
+    columns = GridCells.Fixed(count = 3),
+    horizontalArrangement = Arrangement.spacedBy(AppTheme.paddings.extraSmall),
+    verticalArrangement = Arrangement.spacedBy(AppTheme.paddings.extraSmall),
+    modifier = modifier
+) {
+    items(movies.itemCount) { index ->
+        val movie = movies[index]!!
 
         Movie(
-            imageUrl = artObject.posterPath,
-            contentDescription = artObject.title,
+            imageUrl = movie.posterPath,
+            contentDescription = movie.title,
+            modifier = Modifier
+                .padding(top = if (index < 3) AppTheme.paddings.extraSmall else AppTheme.paddings.none)
+                .clip(RoundedCornerShape(size = AppTheme.paddings.extraSmall))
         )
     }
 
-    refreshLoadState(artObjects)
+    refreshLoadState(movies)
 }
 
 @Composable
@@ -51,20 +63,14 @@ fun Movie(
     imageUrl: String,
     contentDescription: String,
     modifier: Modifier = Modifier,
-) = Card(
-    modifier = modifier.padding(vertical = AppTheme.paddings.small)
-) {
-    Column {
-        AsyncImage(
-            modifier = Modifier.fillMaxWidth(),
-            model = imageUrl,
-            contentScale = ContentScale.FillWidth,
-            contentDescription = contentDescription,
-        )
-    }
-}
+) = AsyncImage(
+    modifier = modifier.fillMaxWidth(),
+    model = imageUrl,
+    contentScale = ContentScale.FillWidth,
+    contentDescription = contentDescription
+)
 
-fun LazyListScope.refreshLoadState(items: LazyPagingItems<Movie>) = items.apply {
+fun LazyGridScope.refreshLoadState(items: LazyPagingItems<Movie>) = items.apply {
     when {
         loadState.refresh is LoadState.Loading -> {
             item { Artist(name = stringResource(id = R.string.loading_art_collection)) }

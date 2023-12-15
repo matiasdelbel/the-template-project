@@ -7,6 +7,11 @@ import retrofit2.http.Query
 internal interface MovieCollectionDataSource {
 
     @GET("movie/popular")
-    suspend fun getPopulars(@Query("page") page: Int,
-    ): MovieCollectionDto
+    suspend fun populars(@Query("page") page: Int): MovieCollectionDto
+
+    @GET("movie/top_rated")
+    suspend fun topRated(@Query("page") page: Int): MovieCollectionDto
+
+    @GET("movie/upcoming")
+    suspend fun upcoming(@Query("page") page: Int): MovieCollectionDto
 }

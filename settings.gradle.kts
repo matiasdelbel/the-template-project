@@ -2,9 +2,6 @@
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-// TODO Rename the root project name
-rootProject.name = "template-android"
-
 pluginManagement {
     includeBuild("build-logic")
 
@@ -25,27 +22,17 @@ dependencyResolutionManagement {
     }
 }
 
-/* Foundation modules */
 include(
+    /* App container module */
+    "app-container",
+
+    /* Foundation modules */
     "foundation:data",
-    "foundation:design-system"
-)
+    "foundation:design-system",
 
-/* Templates ready to use */
-include("templates:empty-app")
-
-/* Apps */
-include(
-    "apps:playground",
-
-    "apps:demo-app",
-    "apps:tmdb-app",
+    /* App modules */
     "apps:rijks-app",
+    "apps:showcase-app",
+    "apps:tmdb-app",
     "apps:tracking-app"
 )
-
-/* Example apps */
-include("examples:permissions")
-
-// TODO Rename the module name - This should be inside feature:lib
-include(":lib")

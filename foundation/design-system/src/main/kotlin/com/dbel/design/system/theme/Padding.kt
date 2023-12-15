@@ -7,6 +7,8 @@ import androidx.compose.ui.unit.dp
 
 @Immutable
 data class Paddings(
+    val none: Dp = Dp.Unspecified,
+    val extraExtraSmall: Dp = Dp.Unspecified,
     val extraSmall: Dp = Dp.Unspecified,
     val small: Dp = Dp.Unspecified,
     val medium: Dp = Dp.Unspecified,
@@ -17,6 +19,8 @@ data class Paddings(
 val LocalPaddings = staticCompositionLocalOf { Paddings() }
 
 internal val DefaultPaddings = Paddings(
+    none = 0.dp,
+    extraExtraSmall = 2.dp,
     extraSmall = 4.dp,
     small = 8.dp,
     medium = 16.dp,

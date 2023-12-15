@@ -1,35 +1,48 @@
 package com.dbel.design.system.theme
 
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(color = 0xFFD0BCFF)
-val PurpleGrey80 = Color(color = 0xFFCCC2DC)
-val Pink80 = Color(color = 0xFFEFB8C8)
+interface DayNightColorScheme {
 
-val Purple40 = Color(color = 0xFF6650a4)
-val PurpleGrey40 = Color(color = 0xFF625b71)
-val Pink40 = Color(color = 0xFF7D5260)
+    fun lightColorScheme(): ColorScheme
 
-internal val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
+    fun darkColorScheme(): ColorScheme
+}
 
-internal val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+@Stable
+object PurpleColorScheme : DayNightColorScheme {
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+    private val Purple40 = Color(color = 0xFF6650a4)
+    private val Purple80 = Color(color = 0xFFD0BCFF)
+
+    override fun lightColorScheme(): ColorScheme = lightColorScheme(
+        primary = Purple40,
+    )
+
+    override fun darkColorScheme(): ColorScheme = darkColorScheme(
+        primary = Purple80,
+    )
+
+}
+
+@Stable
+object LimeColorScheme : DayNightColorScheme {
+
+    private val Lime10 = Color(color = 0xFFF0F4C3)
+    private val Lime50 = Color(color = 0xFFCDDC39)
+    private val Lime80 = Color(color = 0xFF9E9D24)
+
+    override fun lightColorScheme(): ColorScheme = lightColorScheme(
+        primary = Lime50,
+        primaryContainer = Lime10,
+        surfaceVariant = Lime10
+    )
+
+    override fun darkColorScheme(): ColorScheme = darkColorScheme(
+        primary = Lime80,
+    )
+}
