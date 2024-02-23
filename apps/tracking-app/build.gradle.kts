@@ -34,6 +34,7 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.activity)
     implementation(libs.compose.coil)
+    implementation(libs.compose.material)
     implementation(libs.compose.material3)
     implementation(libs.compose.navigation)
     implementation(libs.compose.paging)
@@ -41,7 +42,6 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.viewmodel)
-    implementation("androidx.compose.material:material:1.5.4")
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.compose)
