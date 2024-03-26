@@ -31,6 +31,9 @@ include(
     "foundation:design-system",
 
     /* App modules */
+    "apps:contract",
+
+    "apps:holidays-budget-app",
     "apps:rijks-app",
     "apps:showcase-app",
     "apps:tmdb-app",

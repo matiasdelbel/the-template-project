@@ -19,21 +19,22 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
 import com.dbel.design.system.theme.AppTheme
-import com.rijks.app.ui.RijksHomeScreen
+import com.holidays.budget.ui.HolidaysBudgetScreens
+import com.rijks.app.ui.RijksScreens
 import com.showcase.app.R
-import com.tmdb.app.ui.home.TMdbHomeScreen
-import com.tracking.app.ui.home.TrackingHomeScreen
+import com.tmdb.app.ui.TmdbScreens
+import com.tracking.app.ui.TrackingScreens
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun AppSelector(
-    onRijksAppSelected: () -> Unit,
-    onTmDbAppSelected: () -> Unit,
-    onTrackingAppSelected: () -> Unit,
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
-    val pagerState = rememberPagerState(pageCount = { 3 })
+    val pagerState = rememberPagerState(pageCount = { 4 })
+    val pages = listOf(HolidaysBudgetScreens, RijksScreens, TmdbScreens, TrackingScreens)
 
     Scaffold(
         contentWindowInsets = ScaffoldDefaults
@@ -43,45 +44,44 @@ internal fun AppSelector(
         modifier = modifier.fillMaxSize(),
     ) { contentPadding ->
         HorizontalPager(state = pagerState, contentPadding = contentPadding) { page ->
-            when (page) {
-                0 -> AppPreview(
-                    title = stringResource(R.string.rijks_app_name),
-                    description = stringResource(id = R.string.rijks_app_description),
-                    launch = { onRijksAppSelected() },
-                    modifier = Modifier.padding(vertical = AppTheme.paddings.medium, horizontal = AppTheme.paddings.small),
-                    content = { Card(elevation = CardDefaults.elevatedCardElevation()) { RijksHomeScreen() } }
-                )
-                1 -> AppPreview(
-                    title = stringResource(R.string.tmdb_app_title),
-                    description = stringResource(id = R.string.tmdb_app_description),
-                    launch = { onTmDbAppSelected() },
-                    modifier = Modifier.padding(vertical = AppTheme.paddings.medium, horizontal = AppTheme.paddings.small),
-                    content = { Card(elevation = CardDefaults.elevatedCardElevation()) { TMdbHomeScreen() } }
-                )
-                2 -> AppPreview(
-                    title = stringResource(R.string.tracking_app_name),
-                    description = stringResource(id = R.string.tracking_app_description),
-                    launch = { onTrackingAppSelected() },
-                    modifier = Modifier.padding(vertical = AppTheme.paddings.medium, horizontal = AppTheme.paddings.small),
-                    content = { Card(elevation = CardDefaults.elevatedCardElevation()) { TrackingHomeScreen() } }
-                )
-            }
+            val currentPage = pages[page]
+            AppPreview(
+                page = page,
+                launch = { navController.navigate(currentPage.startRoute) },
+                content = { currentPage.Home() },
+            )
         }
     }
 }
 
 @Composable
 private fun AppPreview(
-    title: String,
-    description: String,
+    page: Int,
     launch: () -> Unit,
     content: @Composable () -> Unit,
-    modifier: Modifier = Modifier,
-) = Column(modifier) {
-    Text(text = title, style = MaterialTheme.typography.titleMedium)
+    modifier: Modifier = Modifier
+) = Column(
+    modifier = modifier.padding(vertical = AppTheme.paddings.medium, horizontal = AppTheme.paddings.small)
+) {
+    Text(
+        text = when (page) {
+            0 -> stringResource(id = R.string.holidays_budget_app_name)
+            1 -> stringResource(id = R.string.rijks_app_name)
+            2 -> stringResource(id = R.string.tmdb_app_name)
+            3 -> stringResource(id = R.string.tracking_app_name)
+            else -> ""
+        },
+        style = MaterialTheme.typography.titleMedium
+    )
 
     Text(
-        text = description,
+        text = when (page) {
+            0 -> stringResource(id = R.string.holidays_budget_app_description)
+            1 -> stringResource(id = R.string.rijks_app_description)
+            2 -> stringResource(id = R.string.tmdb_app_description)
+            3 -> stringResource(id = R.string.tracking_app_description)
+            else -> ""
+        },
         modifier = Modifier.padding(top = AppTheme.paddings.small)
     )
 
@@ -95,5 +95,5 @@ private fun AppPreview(
         }
     }
 
-    content()
+    Card(elevation = CardDefaults.elevatedCardElevation()) { content() }
 }

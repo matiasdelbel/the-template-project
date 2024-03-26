@@ -16,9 +16,9 @@ import com.dbel.design.system.ui.Screen
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.tracking.app.R
-import com.tracking.app.trackingAppScreenList
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute
+import com.tracking.app.ui.trackingScreens
 
 @Composable
 fun TrackingHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
@@ -28,7 +28,7 @@ fun TrackingHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modif
         navController = navController,
         startRoute = startRoute,
         contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
-        builder = { trackingAppScreenList(navController) },
+        builder = { trackingScreens(navController) },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
         bottomBar = { BottomBar(navController, screens = listOf(Tracking, Profile)) },
     )
@@ -63,4 +63,3 @@ val topAppBarTitle = mapOf(
 
 val Tracking = Screen(WeekListSummaryScreenRoute, R.string.home_tracking, iconId = R.drawable.ic_trending_up)
 val Profile = Screen(ProfileScreenRoute, R.string.home_profile, iconId = R.drawable.ic_person)
-
