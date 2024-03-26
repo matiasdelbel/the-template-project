@@ -26,6 +26,7 @@ import com.rijks.app.ui.RijksScreens
 import com.showcase.app.R
 import com.tmdb.app.ui.TmdbScreens
 import com.tracking.app.ui.TrackingScreens
+import com.triominos.TriominosScreens
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -33,8 +34,8 @@ internal fun AppSelector(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
-    val pagerState = rememberPagerState(pageCount = { 4 })
-    val pages = listOf(HolidaysBudgetScreens, RijksScreens, TmdbScreens, TrackingScreens)
+    val pagerState = rememberPagerState(pageCount = { 5 })
+    val pages = listOf(HolidaysBudgetScreens, RijksScreens, TmdbScreens, TrackingScreens, TriominosScreens)
 
     Scaffold(
         contentWindowInsets = ScaffoldDefaults
@@ -69,6 +70,7 @@ private fun AppPreview(
             1 -> stringResource(id = R.string.rijks_app_name)
             2 -> stringResource(id = R.string.tmdb_app_name)
             3 -> stringResource(id = R.string.tracking_app_name)
+            4 -> stringResource(id = R.string.triominos_app_name)
             else -> ""
         },
         style = MaterialTheme.typography.titleMedium
@@ -80,6 +82,7 @@ private fun AppPreview(
             1 -> stringResource(id = R.string.rijks_app_description)
             2 -> stringResource(id = R.string.tmdb_app_description)
             3 -> stringResource(id = R.string.tracking_app_description)
+            4 -> stringResource(id = R.string.triominos_app_description)
             else -> ""
         },
         modifier = Modifier.padding(top = AppTheme.paddings.small)

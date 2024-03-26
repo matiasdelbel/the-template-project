@@ -15,4 +15,7 @@
 
     <string name="tracking_app_name">Tracking</string>
     <string name="tracking_app_description">Tracks how much progress you accomplish in these key areas of your life. Every day you can see how you are finishing the goals set for you.</string>
+
+    <string name="triominos_app_name">Triominos</string>
+    <string name="triominos_app_description">Triominos is a tactical game with triangular, numbered tiles. Place the correct stone on the table and score as many points as possible!</string>
 </resources>
