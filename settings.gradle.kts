@@ -37,5 +37,6 @@ include(
     "apps:rijks-app",
     "apps:showcase-app",
     "apps:tmdb-app",
-    "apps:tracking-app"
+    "apps:tracking-app",
+    "apps:triominos"
 )

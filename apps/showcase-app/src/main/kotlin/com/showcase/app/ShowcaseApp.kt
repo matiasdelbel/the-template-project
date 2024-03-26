@@ -24,6 +24,7 @@ import com.tmdb.app.ui.popular.PopularMovieCollectionRoute
 import com.tmdb.app.ui.tmdbScreens
 import com.tracking.app.ui.TrackingScreens
 import com.tracking.app.ui.trackingScreens
+import com.triominos.triominosScreens
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,6 +59,7 @@ fun ShowcaseApp(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
         rijksScreens(navController)
         tmdbScreens(navController)
         trackingScreens(navController)
+        triominosScreens(navController)
     }
 }
 
