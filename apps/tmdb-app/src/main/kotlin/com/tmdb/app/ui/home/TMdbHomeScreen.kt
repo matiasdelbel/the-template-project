@@ -16,8 +16,8 @@ import com.dbel.design.system.ui.Screen
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.tmdb.app.R
-import com.tmdb.app.tmDbScreenList
 import com.tmdb.app.ui.popular.PopularMovieCollectionRoute
+import com.tmdb.app.ui.tmdbScreens
 import com.tmdb.app.ui.top.TopRatedMovieCollectionRoute
 import com.tmdb.app.ui.upcoming.UpcomingMovieCollectionRoute
 
@@ -29,7 +29,7 @@ fun TMdbHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier)
         navController = navController,
         startRoute = startRoute,
         contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
-        builder = { tmDbScreenList() },
+        builder = { tmdbScreens(navController) },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
         bottomBar = { BottomBar(navController, screens = listOf(Populars, Upcoming, TopRated)) },
     )

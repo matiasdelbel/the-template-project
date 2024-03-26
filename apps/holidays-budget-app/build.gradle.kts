@@ -1,6 +1,4 @@
 @file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
@@ -10,17 +8,12 @@ plugins {
 }
 
 android {
-    namespace = "com.tracking.app"
+    namespace = "com.holidays.budget"
 
-    defaultConfig {
-        vectorDrawables { useSupportLibrary = true }
-    }
+    defaultConfig { vectorDrawables { useSupportLibrary = true } }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
+        release { isMinifyEnabled = false }
     }
 }
 
@@ -48,17 +41,8 @@ dependencies {
     implementation(libs.hilt.compose)
     kapt(libs.hilt.compiler)
 
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.logging)
-    implementation(libs.retrofit.moshi)
-
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
-
-    testImplementation(libs.test.androidx.core)
-    testImplementation(libs.test.coroutines)
-    testImplementation(libs.test.junit)
-    testImplementation (libs.test.mockito)
 }
 
 kapt {

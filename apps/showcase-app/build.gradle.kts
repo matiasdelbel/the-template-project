@@ -19,6 +19,8 @@ android {
 }
 
 dependencies {
+    implementation(projects.apps.contract)
+    implementation(projects.apps.holidaysBudgetApp)
     implementation(projects.apps.rijksApp)
     implementation(projects.apps.trackingApp)
     implementation(projects.apps.tmdbApp)

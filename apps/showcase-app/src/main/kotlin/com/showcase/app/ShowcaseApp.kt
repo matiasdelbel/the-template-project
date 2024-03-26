@@ -11,15 +11,19 @@ import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.ui.NavHostScaffold
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
-import com.rijks.app.rijksScreenList
+import com.holidays.budget.ui.HolidaysBudgetScreens
+import com.holidays.budget.ui.holidayBudgetScreens
 import com.rijks.app.ui.ArtCollectionRoute
-import com.tmdb.app.tmDbScreenList
-import com.tracking.app.trackingAppScreenList
+import com.rijks.app.ui.RijksScreens
+import com.rijks.app.ui.rijksScreens
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.showcase.app.selector.AppSelectorRoute
 import com.showcase.app.selector.appSelectorScreen
-import com.tmdb.app.ui.home.TMdbHomeRoute
+import com.tmdb.app.ui.TmdbScreens
 import com.tmdb.app.ui.popular.PopularMovieCollectionRoute
+import com.tmdb.app.ui.tmdbScreens
+import com.tracking.app.ui.TrackingScreens
+import com.tracking.app.ui.trackingScreens
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,29 +53,13 @@ fun ShowcaseApp(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
             )
         }
     ) {
-        appSelectorScreen(
-            onRijksAppSelected = { navController.navigate(ArtCollectionRoute) },
-            onTmDbAppSelected = { navController.navigate(TMdbHomeRoute) },
-            onTrackingAppSelected = { navController.navigate(WeekListSummaryScreenRoute) }
-        )
-
-        rijksScreenList(navController)
-        tmDbScreenList()
-        trackingAppScreenList(navController)
+        appSelectorScreen(navController)
+        holidayBudgetScreens(navController)
+        rijksScreens(navController)
+        tmdbScreens(navController)
+        trackingScreens(navController)
     }
 }
 
-val routesWithPrimaryTopAppBarColor = listOf(
-    ArtCollectionRoute,
-    TMdbHomeRoute,
-    PopularMovieCollectionRoute,
-    WeekListSummaryScreenRoute,
-)
-
-val routesWithoutNavigationIcon = listOf(
-    AppSelectorRoute,
-    ArtCollectionRoute,
-    TMdbHomeRoute,
-    PopularMovieCollectionRoute,
-    WeekListSummaryScreenRoute,
-)
+val routesWithPrimaryTopAppBarColor = HolidaysBudgetScreens.topRoutes + RijksScreens.topRoutes + TmdbScreens.topRoutes + TrackingScreens.topRoutes
+val routesWithoutNavigationIcon = listOf(AppSelectorRoute) + HolidaysBudgetScreens.topRoutes + RijksScreens.topRoutes + TmdbScreens.topRoutes  + TrackingScreens.topRoutes
