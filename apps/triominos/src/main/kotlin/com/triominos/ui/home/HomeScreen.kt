@@ -1,4 +1,4 @@
-package com.triominos.home
+package com.triominos.ui.home
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,8 +16,8 @@ import com.dbel.design.system.ui.NavHostScaffold
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.triominos.R
-import com.triominos.example.ExampleRoute
-import com.triominos.example.exampleScreen
+import com.triominos.ui.players.CreateGameRoute
+import com.triominos.ui.players.createGameScreen
 
 const val HomeRoute = "triominos/home"
 
@@ -29,9 +29,9 @@ fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
 
     NavHostScaffold(
         navController = navController,
-        startRoute = ExampleRoute,
+        startRoute = CreateGameRoute,
         contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
-        builder = { exampleScreen() },
+        builder = { createGameScreen() },
         topBar = { destination -> TopBar(destination) { navController.navigateUp() } },
     )
 }
@@ -43,7 +43,7 @@ private fun TopBar(
     onNavigateUp: () -> Unit
 ) = TopAppBar(
     title = when (currentDestination.route) {
-        HomeRoute -> stringResource(R.string.home_example)
+        HomeRoute -> stringResource(R.string.game)
         else -> ""
     },
     colors = when (currentDestination.route) {
