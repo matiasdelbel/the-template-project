@@ -10,6 +10,7 @@ import com.tracking.app.ui.flows.weekListSummaryScreen
 import com.tracking.app.ui.flows.weekSummaryScreen
 import com.tracking.app.ui.home.TrackingHomeScreen
 import com.tracking.app.ui.profile.profileScreen
+import com.tracking.app.ui.running.runningHistoricScreen
 
 object TrackingScreens : AppScreens {
 
@@ -30,4 +31,6 @@ fun NavGraphBuilder.trackingScreens(navController: NavController) {
     weekSummaryScreen(navController)
 
     profileScreen()
+
+    runningHistoricScreen()
 }

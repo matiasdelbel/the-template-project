@@ -18,6 +18,7 @@ import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.tracking.app.R
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute
+import com.tracking.app.ui.running.HistoricScreenRoute
 import com.tracking.app.ui.trackingScreens
 
 @Composable
@@ -49,9 +50,10 @@ private fun TopBar(
     onNavigateUp = onNavigateUp
 )
 
-val startRoute = WeekListSummaryScreenRoute
+val startRoute = HistoricScreenRoute
 
 val routesWithPrimaryTopAppBarColor = listOf(
+    HistoricScreenRoute,
     WeekListSummaryScreenRoute,
     ProfileScreenRoute,
 )
@@ -61,5 +63,5 @@ val topAppBarTitle = mapOf(
     ProfileScreenRoute to R.string.home_profile,
 )
 
-val Tracking = Screen(WeekListSummaryScreenRoute, R.string.home_tracking, iconId = R.drawable.ic_trending_up)
+val Tracking = Screen(HistoricScreenRoute, R.string.home_tracking, iconId = R.drawable.ic_trending_up)
 val Profile = Screen(ProfileScreenRoute, R.string.home_profile, iconId = R.drawable.ic_person)

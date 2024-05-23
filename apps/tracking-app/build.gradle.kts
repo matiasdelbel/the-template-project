@@ -1,6 +1,4 @@
 @file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
