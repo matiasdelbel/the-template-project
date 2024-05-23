@@ -1,3 +1,4 @@
+@file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.application.compose)
@@ -7,14 +8,12 @@ plugins {
 }
 
 android {
-    namespace = "com.template.app"
+    namespace = "com.template.playground"
 
     defaultConfig {
-        applicationId = "com.template.app"
+        applicationId = "com.template.playground"
         versionCode = 1
         versionName = "1.0"
-
-        vectorDrawables { useSupportLibrary = true }
     }
 
     buildTypes {
@@ -26,7 +25,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.showcaseApp) // The application dependency loaded in the container
+    implementation(projects.apps.trackingApp) // The application dependency loaded in the container
     
     implementation(projects.foundation.designSystem)
 

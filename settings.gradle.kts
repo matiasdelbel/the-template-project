@@ -24,7 +24,8 @@ dependencyResolutionManagement {
 
 include(
     /* App container module */
-    "app-container",
+    "app-container:playground",
+    "app-container:showcase",
 
     /* Foundation modules */
     "foundation:data",
@@ -35,7 +36,6 @@ include(
 
     "apps:holidays-budget-app",
     "apps:rijks-app",
-    "apps:showcase-app",
     "apps:tmdb-app",
     "apps:tracking-app",
     "apps:triominos"
