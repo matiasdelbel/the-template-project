@@ -1,4 +1,4 @@
-package com.template.app
+package com.template.playground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

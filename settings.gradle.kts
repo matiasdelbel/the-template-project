@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 
 include(
     /* App container module */
-    "app-container",
+    "app-container:playground",
 
     /* Foundation modules */
     "foundation:data",

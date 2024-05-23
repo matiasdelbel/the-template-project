@@ -1,4 +1,4 @@
-package com.template.app
+package com.template.playground
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
