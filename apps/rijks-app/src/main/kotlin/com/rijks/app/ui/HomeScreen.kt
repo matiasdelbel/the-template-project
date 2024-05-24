@@ -18,12 +18,12 @@ import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.tmdb.app.R
 
 @Composable
-internal fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     val navController = rememberNavController()
 
     NavHostScaffold(
         navController = navController,
-        startRoute = RijksScreens.startRoute,
+        startRoute = ArtCollectionRoute,
         contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
         builder = { rijksScreens(navController)  },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
@@ -37,11 +37,11 @@ private fun TopBar(
     currentDestination: NavDestination,
     onNavigateUp: () -> Unit
 ) = TopAppBar(
-    title = if (currentDestination.route == RijksScreens.startRoute) stringResource(R.string.rijks_app_name) else "",
+    title = if (currentDestination.route == ArtCollectionRoute) stringResource(R.string.rijks_app_name) else "",
     colors = when (currentDestination.route) {
-        in RijksScreens.topRoutes -> TopAppBarDefaults.primaryTopAppBarColors()
+        ArtCollectionRoute -> TopAppBarDefaults.primaryTopAppBarColors()
         else -> TopAppBarDefaults.topAppBarColors()
     },
-    isNavigationIconVisible = currentDestination.route !in RijksScreens.topRoutes,
+    isNavigationIconVisible = currentDestination.route != ArtCollectionRoute,
     onNavigateUp = onNavigateUp
 )

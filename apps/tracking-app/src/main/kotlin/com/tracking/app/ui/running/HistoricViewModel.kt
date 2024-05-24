@@ -20,7 +20,7 @@ class HistoricViewModel @Inject constructor(
 
     private fun Workout.Running.toUiState() = WorkoutUiState(
         date = dateFormatter.format(date),
-        distanceKm = distanceKm.toString(),
+        distanceKm = "$distanceKm km",
         duration = "${duration.minutes}:${duration.seconds}",
         averagePace = "${averagePace.minutes}:${averagePace.seconds}"
     )

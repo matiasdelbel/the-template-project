@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.rijks.app.model.ArtObjectOverview
 
-internal fun NavGraphBuilder.artCollectionScreen(
+fun NavGraphBuilder.artCollectionScreen(
     onArtObjectSelected: (artObject: ArtObjectOverview) -> Unit
 ) = composable(
     route = ArtCollectionRoute

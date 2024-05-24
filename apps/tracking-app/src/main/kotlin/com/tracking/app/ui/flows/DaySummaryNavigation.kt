@@ -5,6 +5,6 @@ import androidx.navigation.compose.composable
 
 const val DaySummaryScreenRoute = "track/day"
 
-internal fun NavGraphBuilder.daySummaryScreen() = composable(route = DaySummaryScreenRoute) {
+fun NavGraphBuilder.daySummaryScreen() = composable(route = DaySummaryScreenRoute) {
     DaySummaryScreen()
 }

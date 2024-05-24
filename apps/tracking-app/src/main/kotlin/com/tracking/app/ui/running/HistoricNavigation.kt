@@ -9,7 +9,7 @@ import com.dbel.design.system.theme.AppTheme
 
 const val HistoricScreenRoute = "running/historic"
 
-internal fun NavGraphBuilder.runningHistoricScreen() = composable(route = HistoricScreenRoute) {
+fun NavGraphBuilder.runningHistoricScreen() = composable(route = HistoricScreenRoute) {
     HistoricScreen(
         viewModel = hiltViewModel(),
         modifier = Modifier.padding(all = AppTheme.paddings.medium)

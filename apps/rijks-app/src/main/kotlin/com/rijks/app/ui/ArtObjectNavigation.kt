@@ -23,7 +23,7 @@ internal class ArtObjectArgs(
     )
 }
 
-internal fun NavGraphBuilder.artObjectScreen() = composable(
+fun NavGraphBuilder.artObjectScreen() = composable(
     route = "$ArtObjectRoute/{$ArtObjectNumberArg}?$ArtObjectTitleArg={$ArtObjectTitleArg}&$ArtObjectImageUrlArg={$ArtObjectImageUrlArg}",
     arguments = listOf(
         navArgument(name = ArtObjectNumberArg) {

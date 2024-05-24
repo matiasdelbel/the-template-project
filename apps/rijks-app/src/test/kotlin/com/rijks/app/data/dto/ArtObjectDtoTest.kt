@@ -3,8 +3,6 @@ package com.rijks.app.data.dto
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual.equalTo
 import org.junit.Test
-import com.tmdb.app.data.dto.DatingDto
-import com.tmdb.app.data.dto.MakerDto
 import org.hamcrest.core.Is.`is` as itIs
 
 class ArtObjectDtoTest {

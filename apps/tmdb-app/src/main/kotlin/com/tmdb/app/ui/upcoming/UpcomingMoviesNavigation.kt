@@ -8,7 +8,7 @@ import com.tmdb.app.ui.MovieCollection
 
 const val UpcomingMovieCollectionRoute = "movies/upcoming"
 
-internal fun NavGraphBuilder.upcomingMoviesScreens() = composable(
+fun NavGraphBuilder.upcomingMoviesScreens() = composable(
     route = UpcomingMovieCollectionRoute
 ) {
     val upcomingMoviesViewModel = hiltViewModel<UpcomingMoviesViewModel>()

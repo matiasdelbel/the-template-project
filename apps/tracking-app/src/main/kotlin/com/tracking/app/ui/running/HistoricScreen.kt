@@ -16,9 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dbel.design.system.theme.AppTheme
 import com.tracking.app.R
 
@@ -31,7 +30,10 @@ fun HistoricScreen(
 
     LazyColumn(modifier) {
         items(items = workouts.value) {
-            Row {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(bottom = AppTheme.paddings.small),
+            ) {
                 Column(modifier = Modifier.weight(0.8f)) {
                     Text(
                         text = it.date,
@@ -52,7 +54,8 @@ fun HistoricScreen(
                     }
                 }
                 Text(
-                    text = it.distanceKm + " km",
+                    text = it.distanceKm,
+                    fontWeight = FontWeight.Bold
                 )
             }
         }

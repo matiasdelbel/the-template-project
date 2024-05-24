@@ -8,7 +8,7 @@ import com.tmdb.app.ui.MovieCollection
 
 const val TopRatedMovieCollectionRoute = "movies/top_rated"
 
-internal fun NavGraphBuilder.topRatedMoviesScreens() = composable(
+fun NavGraphBuilder.topRatedMoviesScreens() = composable(
     route = TopRatedMovieCollectionRoute
 ) {
     val topRatedViewModel = hiltViewModel<TopRatedViewModel>()

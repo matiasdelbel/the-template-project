@@ -21,12 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.dbel.design.system.theme.AppTheme
-import com.holidays.budget.ui.HolidaysBudgetScreens
-import com.rijks.app.ui.RijksScreens
 import com.showcase.app.R
-import com.tmdb.app.ui.TmdbScreens
-import com.tracking.app.ui.TrackingScreens
-import com.triominos.TriominosScreens
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

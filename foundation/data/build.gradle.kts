@@ -9,10 +9,6 @@ plugins {
 android {
     namespace = "com.common.data"
 
-    defaultConfig {
-        vectorDrawables { useSupportLibrary = true }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = false

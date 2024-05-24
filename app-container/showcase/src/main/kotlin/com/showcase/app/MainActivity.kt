@@ -16,20 +16,20 @@ import com.dbel.design.system.theme.AppTheme
 import com.dbel.design.system.ui.NavHostScaffold
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
-import com.holidays.budget.ui.HolidaysBudgetScreens
-import com.holidays.budget.ui.holidayBudgetScreens
 import com.rijks.app.ui.ArtCollectionRoute
-import com.rijks.app.ui.RijksScreens
 import com.rijks.app.ui.rijksScreens
 import com.showcase.app.selector.AppSelectorRoute
+import com.showcase.app.selector.HolidaysBudgetScreens
+import com.showcase.app.selector.RijksScreens
+import com.showcase.app.selector.TmdbScreens
+import com.showcase.app.selector.TrackingScreens
 import com.showcase.app.selector.appSelectorScreen
-import com.tmdb.app.ui.TmdbScreens
+import com.showcase.app.selector.holidayBudgetScreens
+import com.showcase.app.selector.triominosScreens
 import com.tmdb.app.ui.popular.PopularMovieCollectionRoute
 import com.tmdb.app.ui.tmdbScreens
-import com.tracking.app.ui.TrackingScreens
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.trackingScreens
-import com.triominos.triominosScreens
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
