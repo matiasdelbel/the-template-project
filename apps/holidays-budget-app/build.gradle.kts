@@ -18,7 +18,6 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.contract)
     implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 

@@ -1,6 +1,4 @@
 @file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
@@ -25,7 +23,6 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.contract)
     implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 
@@ -51,6 +48,10 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.logging)
     implementation(libs.retrofit.moshi)
+
+    implementation(libs.room)
+    implementation(libs.room.ktx)
+    kapt(libs.room.kapt)
 
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)

@@ -12,7 +12,7 @@ import com.dbel.design.system.theme.AppTheme
 
 internal const val ExampleRoute = "example"
 
-internal fun NavGraphBuilder.exampleScreen() = composable(route = ExampleRoute) { ExampleScreen() }
+fun NavGraphBuilder.exampleScreen() = composable(route = ExampleRoute) { ExampleScreen() }
 
 @Composable
 fun ExampleScreen(

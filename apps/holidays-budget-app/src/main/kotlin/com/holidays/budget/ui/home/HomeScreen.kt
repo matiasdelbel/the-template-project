@@ -16,17 +16,15 @@ import com.dbel.design.system.ui.NavHostScaffold
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.holidays.budget.R
-import com.holidays.budget.ui.HolidaysBudgetScreens
 import com.holidays.budget.ui.example.ExampleRoute
 import com.holidays.budget.ui.example.exampleScreen
 
+const val HomeRoute = "holidays/budget/home"
 
-internal const val HomeRoute = "holidays/budget/home"
-
-internal fun NavGraphBuilder.homeScreen() = composable(route = HomeRoute) { HomeScreen() }
+fun NavGraphBuilder.holidayHomeScreen() = composable(route = HomeRoute) { HomeScreen() }
 
 @Composable
-internal fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     val navController = rememberNavController()
 
     NavHostScaffold(
@@ -49,9 +47,9 @@ private fun TopBar(
         else -> ""
     },
     colors = when (currentDestination.route) {
-        in HolidaysBudgetScreens.topRoutes -> TopAppBarDefaults.primaryTopAppBarColors()
+        HomeRoute -> TopAppBarDefaults.primaryTopAppBarColors()
         else -> TopAppBarDefaults.topAppBarColors()
     },
-    isNavigationIconVisible = currentDestination.route !in HolidaysBudgetScreens.topRoutes,
+    isNavigationIconVisible = currentDestination.route != HomeRoute,
     onNavigateUp = onNavigateUp
 )

@@ -16,16 +16,15 @@ import com.dbel.design.system.ui.NavHostScaffold
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.triominos.R
-import com.triominos.TriominosScreens
 import com.triominos.example.ExampleRoute
 import com.triominos.example.exampleScreen
 
-internal const val HomeRoute = "triominos/home"
+const val HomeRoute = "triominos/home"
 
-internal fun NavGraphBuilder.homeScreen() = composable(route = HomeRoute) { HomeScreen() }
+fun NavGraphBuilder.homeScreen() = composable(route = HomeRoute) { HomeScreen() }
 
 @Composable
-internal fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     val navController = rememberNavController()
 
     NavHostScaffold(
@@ -48,9 +47,9 @@ private fun TopBar(
         else -> ""
     },
     colors = when (currentDestination.route) {
-        in TriominosScreens.topRoutes -> TopAppBarDefaults.primaryTopAppBarColors()
+        HomeRoute -> TopAppBarDefaults.primaryTopAppBarColors()
         else -> TopAppBarDefaults.topAppBarColors()
     },
-    isNavigationIconVisible = currentDestination.route !in TriominosScreens.topRoutes,
+    isNavigationIconVisible = currentDestination.route != HomeRoute,
     onNavigateUp = onNavigateUp
 )

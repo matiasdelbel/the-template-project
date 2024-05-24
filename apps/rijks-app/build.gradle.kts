@@ -1,5 +1,7 @@
 @file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.File
+import java.io.FileInputStream
+import java.util.*
 
 plugins {
     alias(libs.plugins.android.library)
@@ -15,7 +17,9 @@ android {
     defaultConfig {
         vectorDrawables { useSupportLibrary = true }
 
-        val tmdbApiKey: String = gradleLocalProperties(rootDir).getProperty("rijks.api.key")
+        val localPrperties = Properties().apply { load(FileInputStream(File(rootProject.rootDir, "local.properties"))) }
+        val tmdbApiKey: String = localPrperties.getProperty("rijks.api.key")
+
         resValue("string", "rijks_api_key", tmdbApiKey)
     }
 
@@ -28,7 +32,6 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.contract)
     implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 

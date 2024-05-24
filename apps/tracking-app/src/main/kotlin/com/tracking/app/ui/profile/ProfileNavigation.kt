@@ -5,5 +5,5 @@ import androidx.navigation.compose.composable
 
 const val ProfileScreenRoute = "profile"
 
-internal fun NavGraphBuilder.profileScreen() =
+fun NavGraphBuilder.profileScreen() =
     composable(route = ProfileScreenRoute) { ProfileScreen() }

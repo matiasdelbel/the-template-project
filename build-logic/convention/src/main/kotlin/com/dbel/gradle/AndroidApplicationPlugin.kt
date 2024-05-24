@@ -7,21 +7,17 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.dbel.gradle.plugin.androidApplicationPluginId
 import com.dbel.gradle.plugin.kotlinAndroidPluginId
 import com.dbel.gradle.plugin.kotlinOptions
-import com.dbel.gradle.plugin.libs
+import com.dbel.gradle.plugin.versionCatalog
 import org.gradle.api.JavaVersion
-import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.kotlin.dsl.getByType
 
 @Suppress(names = ["UnstableApiUsage"])
 class AndroidApplicationPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
-        val catalog = target.extensions.getByType<VersionCatalogsExtension>().libs
-
         with(target) {
             with(pluginManager) {
-                apply(catalog.androidApplicationPluginId)
-                apply(catalog.kotlinAndroidPluginId)
+                apply(versionCatalog.androidApplicationPluginId)
+                apply(versionCatalog.kotlinAndroidPluginId)
             }
 
             extensions.configure<BaseAppModuleExtension> {

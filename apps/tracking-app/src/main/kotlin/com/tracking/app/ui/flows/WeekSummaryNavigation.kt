@@ -6,6 +6,6 @@ import androidx.navigation.compose.composable
 
 const val WeekSummaryScreenRoute = "track/week"
 
-internal fun NavGraphBuilder.weekSummaryScreen(navController: NavController) = composable(route = WeekSummaryScreenRoute) {
+fun NavGraphBuilder.weekSummaryScreen(navController: NavController) = composable(route = WeekSummaryScreenRoute) {
     WeekSummaryScreen(weekNumber = 1, onClick = { navController.navigate(DaySummaryScreenRoute) })
 }
