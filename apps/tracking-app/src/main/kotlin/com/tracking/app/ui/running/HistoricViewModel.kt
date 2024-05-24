@@ -15,7 +15,7 @@ class HistoricViewModel @Inject constructor(
 ) : ViewModel() {
 
     val all = workoutRepository
-        .runningHistoric()
+        .workouts
         .map { workouts -> workouts.map { workout -> workout.toUiState() } }
 
     private fun Workout.Running.toUiState() = WorkoutUiState(

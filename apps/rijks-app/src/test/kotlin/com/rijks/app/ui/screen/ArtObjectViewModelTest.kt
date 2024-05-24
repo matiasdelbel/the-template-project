@@ -28,7 +28,7 @@ class ArtObjectViewModelTest {
 
     @Test
     fun `ui initial state`() = runTest {
-        val viewModel = ArtObjectViewModel(
+        val viewModel ArtObjectViewModel(
             savedStateHandle = mock {
                 on { get<String>("art_object_number") } doReturn "SK-C-5"
                 on { get<String>("art_object_title") } doReturn "De Nachtwacht"
