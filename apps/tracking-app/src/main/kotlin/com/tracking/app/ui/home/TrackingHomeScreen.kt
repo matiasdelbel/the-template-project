@@ -10,15 +10,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
-import com.dbel.design.system.ui.BottomBar
 import com.dbel.design.system.ui.NavHostScaffold
-import com.dbel.design.system.ui.Screen
 import com.dbel.design.system.ui.TopAppBar
 import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.tracking.app.R
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute
 import com.tracking.app.ui.running.HistoricScreenRoute
+import com.tracking.app.ui.running.RecordRunScreenRoute
 import com.tracking.app.ui.trackingScreens
 
 @Composable
@@ -27,11 +26,10 @@ fun TrackingHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modif
 
     NavHostScaffold(
         navController = navController,
-        startRoute = startRoute,
+        startRoute = HistoricScreenRoute,
         contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
         builder = { trackingScreens(navController) },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
-        bottomBar = { BottomBar(navController, screens = listOf(Tracking, Profile)) },
     )
 }
 
@@ -50,8 +48,6 @@ private fun TopBar(
     onNavigateUp = onNavigateUp
 )
 
-val startRoute = HistoricScreenRoute
-
 val routesWithPrimaryTopAppBarColor = listOf(
     HistoricScreenRoute,
     WeekListSummaryScreenRoute,
@@ -60,8 +56,7 @@ val routesWithPrimaryTopAppBarColor = listOf(
 
 val topAppBarTitle = mapOf(
     WeekListSummaryScreenRoute to R.string.home_tracking,
+    HistoricScreenRoute to R.string.workouts,
     ProfileScreenRoute to R.string.home_profile,
+    RecordRunScreenRoute to R.string.record_workout,
 )
-
-val Tracking = Screen(HistoricScreenRoute, R.string.home_tracking, iconId = R.drawable.ic_trending_up)
-val Profile = Screen(ProfileScreenRoute, R.string.home_profile, iconId = R.drawable.ic_person)

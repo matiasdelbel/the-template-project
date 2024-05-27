@@ -11,12 +11,13 @@ import java.util.Date
     tableName = "running"
 )
 data class RunningDto(
-    @PrimaryKey val id: Long,
     @ColumnInfo(name = "date") val date: Date,
     @ColumnInfo(name = "distance_km") val distanceKm: Double,
     @Embedded(prefix = "duration") val duration: TimePeriodDto,
     @Embedded(prefix = "average_pace") val averagePace: TimePeriodDto,
 ) {
+
+    @PrimaryKey(autoGenerate = true) var id: Long = 0
 
     fun toWorkoutRunning() = Workout.Running(
         id = id,
@@ -26,3 +27,10 @@ data class RunningDto(
         averagePace = averagePace.toTimePeriod(),
     )
 }
+
+fun Workout.Running.toRunningDto() = RunningDto(
+    date = date,
+    distanceKm = distanceKm,
+    duration = duration.toTimePeriodDto(),
+    averagePace = averagePace.toTimePeriodDto()
+).apply { id = this@toRunningDto.id }
