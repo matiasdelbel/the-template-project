@@ -39,7 +39,7 @@ room-ktx = { module = "androidx.room:room-ktx", version = "2.6.1" }
 [plugins]
 com-android-application = { id = "com.android.application", version = "8.4.1" }
 com-android-library = { id = "com.android.library", version = "8.4.1" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "1.9.24" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.0.0" }
 
 android-application = { id = "com.dbel.android.application", version = "1.0.0" }
 android-application-compose = { id = "com.dbel.android.application.compose", version = "1.0.0" }
