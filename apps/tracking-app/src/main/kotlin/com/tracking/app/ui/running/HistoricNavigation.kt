@@ -16,7 +16,7 @@ fun NavGraphBuilder.historicRunScreen(navController: NavController) = composable
         viewModel = hiltViewModel(),
         onRecordWorkout = { navController.navigateToRecordRunScreen() },
         modifier = Modifier
-            .padding(all = AppTheme.paddings.medium)
+            .padding(top = AppTheme.paddings.medium)
             .fillMaxSize()
     )
 }
