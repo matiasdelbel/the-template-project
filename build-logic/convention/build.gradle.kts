@@ -13,7 +13,7 @@ java {
 dependencies {
     // Plugins
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
-    implementation("com.android.tools.build:gradle:7.0.4")
+    implementation("com.android.tools.build:gradle:8.4.1")
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
 }
