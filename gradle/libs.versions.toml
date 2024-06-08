@@ -17,7 +17,7 @@ compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-mani
 compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 compose-paging = { group = "androidx.paging", name = "paging-compose", version = "3.3.0" }
-compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version = "2.8.0" }
+compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version = "2.8.1" }
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version = "2.51.1" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version = "2.51.1" }
