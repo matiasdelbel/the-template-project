@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.dbel.design.system.theme.AppTheme
-import com.tracking.app.ui.home.TrackingHomeScreen
+import com.tracking.app.ui.TrackingAppContent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun AppContent() = TrackingHomeScreen() // The main composable function from the app using the container.
+fun AppContent() = TrackingAppContent() // The main composable function from the app using the container.
 
 @Preview(showBackground = true)
 @Composable

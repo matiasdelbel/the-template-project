@@ -1,4 +1,4 @@
-package com.tracking.app.ui.running
+package com.tracking.app.ui.workout.create
 
 import android.util.Log
 import androidx.compose.runtime.derivedStateOf
@@ -12,13 +12,14 @@ import androidx.lifecycle.viewModelScope
 import com.tracking.app.gateway.WorkoutRepository
 import com.tracking.app.model.TimePeriod
 import com.tracking.app.model.Workout
+import com.tracking.app.ui.workout.list.dateFormatter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
-class RecordRunViewModel @Inject constructor(
+class CreateWorkoutViewModel @Inject constructor(
     private val workoutRepository: WorkoutRepository,
 ) : ViewModel() {
 

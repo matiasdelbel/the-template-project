@@ -1,4 +1,4 @@
-package com.tracking.app.ui.running
+package com.tracking.app.ui.workout.list
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -18,9 +18,10 @@ import com.tracking.app.R
 import com.tracking.app.ui.components.WorkoutRunning
 
 @Composable
-fun HistoricScreen(
+fun WorkoutListScreen(
     viewModel: HistoricViewModel,
-    onRecordWorkout: () -> Unit,
+    onCreateWorkout: () -> Unit,
+    onUpdateWorkout: (workoutId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val workouts = viewModel.all.collectAsState(initial = emptyList())
@@ -36,13 +37,14 @@ fun HistoricScreen(
                         averagePace = it.averagePace,
                         modifier = Modifier.padding(all = AppTheme.paddings.medium),
                         onDelete = { viewModel.delete(it) },
+                        onUpdate = { onUpdateWorkout(it.workout.id) },
                     )
                 }
             }
         }
 
         FloatingActionButton(
-            onClick = { onRecordWorkout() },
+            onClick = { onCreateWorkout() },
             modifier = Modifier.align(Alignment.BottomEnd)
         ) {
             Icon(painter = painterResource(id = R.drawable.ic_add), contentDescription = "")
