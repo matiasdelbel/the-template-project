@@ -10,3 +10,5 @@ data class TimePeriodDto(
 
     fun toTimePeriod() = TimePeriod(minutes, seconds)
 }
+
+fun TimePeriod.toTimePeriodDto() = TimePeriodDto(minutes, seconds)

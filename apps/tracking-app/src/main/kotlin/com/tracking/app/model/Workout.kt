@@ -5,7 +5,7 @@ import java.util.Date
 sealed interface Workout {
 
     data class Running(
-        val id: Long,
+        val id: Long = 0,
         val date: Date,
         val distanceKm: Double,
         val duration: TimePeriod,

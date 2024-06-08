@@ -34,4 +34,4 @@ class HistoricViewModel @Inject constructor(
 }
 
 @SuppressLint("SimpleDateFormat")
-private val dateFormatter = SimpleDateFormat("dd-MM-yyyy")
+val dateFormatter = SimpleDateFormat("dd-MM-yyyy")

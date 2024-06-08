@@ -14,11 +14,8 @@ interface WorkoutDao {
     @Query("SELECT * FROM running")
     fun loadAll(): Flow<List<RunningDto>>
 
-    @Query("SELECT * FROM running WHERE id = :id")
-    fun loadAllById(id: Int): Flow<List<RunningDto>>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(vararg workouts: RunningDto)
+    suspend fun insert(workout: RunningDto)
 
     @Delete
     suspend fun delete(workout: RunningDto)
