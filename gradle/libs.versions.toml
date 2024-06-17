@@ -26,7 +26,7 @@ hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", vers
 test-androidx-core = { group = "androidx.test", name = "core", version = "1.5.0" }
 test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "1.7.3" }
 test-junit = { group = "junit", name = "junit", version = "4.13.2" }
-test-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", version = "4.1.0" }
+test-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", version = "5.3.1" }
 
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version = "2.9.0" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version = "2.11.0" }
