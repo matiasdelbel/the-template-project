@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Card
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -25,15 +26,18 @@ fun HistoricScreen(
     val workouts = viewModel.all.collectAsState(initial = emptyList())
 
     Box(modifier) {
-        LazyColumn {
-            items(items = workouts.value) {
-                WorkoutRunning(
-                    date = it.date,
-                    distanceKm = it.distanceKm,
-                    duration = it.duration,
-                    averagePace = it.averagePace,
-                    modifier = Modifier.padding(bottom = AppTheme.paddings.small),
-                )
+        Card {
+            LazyColumn {
+                items(items = workouts.value) {
+                    WorkoutRunning(
+                        date = it.date,
+                        distanceKm = it.distanceKm,
+                        duration = it.duration,
+                        averagePace = it.averagePace,
+                        modifier = Modifier.padding(all = AppTheme.paddings.medium),
+                        onDelete = { viewModel.delete(it) },
+                    )
+                }
             }
         }
 

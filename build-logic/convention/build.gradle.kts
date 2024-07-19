@@ -11,11 +11,10 @@ java {
 }
 
 dependencies {
-    // Plugins
+    implementation("com.android.tools.build:gradle:8.5.1")
+    
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0")
-    implementation("com.android.tools.build:gradle:7.0.4")
-    // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
 }
 
 gradlePlugin {

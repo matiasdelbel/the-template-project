@@ -27,7 +27,12 @@ fun TrackingHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modif
     NavHostScaffold(
         navController = navController,
         startRoute = HistoricScreenRoute,
-        contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
+        contentWindowInsets = WindowInsets(
+            left = AppTheme.paddings.medium,
+            right = AppTheme.paddings.medium,
+            top = AppTheme.paddings.medium,
+            bottom = AppTheme.paddings.medium,
+        ),
         builder = { trackingScreens(navController) },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
     )

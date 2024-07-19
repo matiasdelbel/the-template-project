@@ -16,7 +16,9 @@ class WorkoutRepository @Inject constructor(
         .loadAll()
         .map { it.map { dto -> dto.toWorkoutRunning() } }
 
-    suspend fun insert(workout: Workout.Running) {
-        workoutDao.insert(workout = workout.toRunningDto())
-    }
+    suspend fun insert(workout: Workout.Running) = workoutDao
+        .insert(workout = workout.toRunningDto())
+
+    suspend fun delete(workout: Workout.Running) = workoutDao
+        .delete(workout = workout.toRunningDto())
 }
