@@ -6,6 +6,7 @@ import com.tracking.app.ui.flows.daySummaryScreen
 import com.tracking.app.ui.flows.weekListSummaryScreen
 import com.tracking.app.ui.flows.weekSummaryScreen
 import com.tracking.app.ui.profile.profileScreen
+import com.tracking.app.ui.water.waterScreens
 import com.tracking.app.ui.workout.workoutScreens
 
 fun NavGraphBuilder.trackingScreens(navController: NavController) {
@@ -14,5 +15,6 @@ fun NavGraphBuilder.trackingScreens(navController: NavController) {
     weekSummaryScreen(navController)
     profileScreen()
 
+    waterScreens(navController)
     workoutScreens(navController)
 }
