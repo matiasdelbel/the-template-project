@@ -15,7 +15,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21")
     implementation("com.android.tools.build:gradle:8.5.1")
     // Kotlin
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
 }
 
 gradlePlugin {
