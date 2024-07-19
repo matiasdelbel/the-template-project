@@ -24,10 +24,7 @@ class AndroidLibraryPlugin : Plugin<Project> {
             compileSdk = 34
             buildToolsVersion = "34.0.0"
 
-            defaultConfig {
-                targetSdk = 34
-                minSdk = 26
-            }
+            defaultConfig { minSdk = 26 }
 
             compileOptions {
                 sourceCompatibility = JavaVersion.VERSION_17

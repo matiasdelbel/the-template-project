@@ -26,6 +26,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.logging)
     implementation(libs.retrofit.moshi)
+    implementation (libs.moshi)
 }
 
 kapt {
