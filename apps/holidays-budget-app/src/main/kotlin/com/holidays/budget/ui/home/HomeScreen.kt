@@ -12,9 +12,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
-import com.dbel.design.system.ui.NavHostScaffold
-import com.dbel.design.system.ui.TopAppBar
-import com.dbel.design.system.ui.primaryTopAppBarColors
+import com.dbel.design.system.component.NavHostScaffold
+import com.dbel.design.system.component.TopAppBar
+import com.dbel.design.system.component.primaryTopAppBarColors
 import com.holidays.budget.R
 import com.holidays.budget.ui.example.ExampleRoute
 import com.holidays.budget.ui.example.exampleScreen
