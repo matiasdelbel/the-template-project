@@ -1,4 +1,4 @@
-package com.tracking.app.ui.running
+package com.tracking.app.ui.workout.list
 
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModel
@@ -20,10 +20,8 @@ class HistoricViewModel @Inject constructor(
         .workouts
         .map { workouts -> workouts.map { workout -> workout.toUiState() } }
 
-    fun delete(state: WorkoutUiState) {
-        viewModelScope.launch {
-            workoutRepository.delete(workout = state.workout)
-        }
+    fun delete(state: WorkoutUiState) = viewModelScope.launch {
+        workoutRepository.delete(workout = state.workout)
     }
 
     private fun Workout.Running.toUiState() = WorkoutUiState(

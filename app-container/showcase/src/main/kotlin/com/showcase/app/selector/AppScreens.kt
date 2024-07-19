@@ -9,7 +9,7 @@ import com.tmdb.app.ui.home.TMdbHomeRoute
 import com.tmdb.app.ui.home.TMdbHomeScreen
 import com.tmdb.app.ui.popular.PopularMovieCollectionRoute
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
-import com.tracking.app.ui.home.TrackingHomeScreen
+import com.tracking.app.ui.TrackingAppContent
 import com.triominos.example.exampleScreen
 import com.triominos.home.HomeRoute
 import com.triominos.home.HomeScreen
@@ -41,7 +41,7 @@ object TrackingScreens : AppScreens {
     override val topRoutes: List<String> = listOf(WeekListSummaryScreenRoute)
 
     @Composable
-    override fun Home() = TrackingHomeScreen()
+    override fun Home() = TrackingAppContent()
 }
 
 object TmdbScreens : AppScreens {

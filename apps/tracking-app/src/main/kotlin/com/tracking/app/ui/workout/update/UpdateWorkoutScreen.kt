@@ -1,4 +1,4 @@
-package com.tracking.app.ui.running
+package com.tracking.app.ui.workout.update
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,13 +24,13 @@ import com.tracking.app.R
 import com.tracking.app.ui.components.WorkoutRunning
 
 @Composable
-fun RecordRunScreen(
-    viewModel: RecordRunViewModel,
-    onFinish: () -> Unit,
+fun UpdateWorkoutScreen(
+    viewModel: UpdateWorkoutViewModel,
+    onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) = Column(modifier) {
     if (viewModel.screenState.finish) {
-        onFinish()
+        onClose()
     }
 
     WorkoutRunningCard(viewModel)
@@ -71,8 +71,8 @@ fun RecordRunScreen(
     )
 
     Button(
-        onClick = { viewModel.saveWorkout() },
-        content = { Text(text = "Save") },
+        onClick = { viewModel.updateWorkout() },
+        content = { Text(text = "Update") },
         modifier = Modifier
             .padding(top = AppTheme.paddings.small)
             .align(Alignment.End)
@@ -81,7 +81,7 @@ fun RecordRunScreen(
 
 @Composable
 private fun WorkoutRunningCard(
-    viewModel: RecordRunViewModel,
+    viewModel: UpdateWorkoutViewModel,
     modifier: Modifier = Modifier,
 ) = Card(modifier) {
     val averagePace by remember {

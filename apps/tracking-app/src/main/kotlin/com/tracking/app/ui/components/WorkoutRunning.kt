@@ -4,16 +4,11 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.dbel.design.system.theme.AppTheme
 import com.tracking.app.R
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun WorkoutRunning(
     date: String,
@@ -39,8 +34,9 @@ internal fun WorkoutRunning(
     averagePace: String,
     modifier: Modifier = Modifier,
     onDelete: () -> Unit = {},
+    onUpdate: () -> Unit = {},
 ) {
-    var onLongPressed by rememberSaveable { mutableStateOf<Boolean>(false) }
+    var isEditionSheetOpen by rememberSaveable { mutableStateOf(false) }
     val haptics = LocalHapticFeedback.current
 
     Row(
@@ -50,7 +46,7 @@ internal fun WorkoutRunning(
                 onClick = { },
                 onLongClick = {
                     haptics.performHapticFeedback(HapticFeedbackType.LongPress)
-                    onLongPressed = true
+                    isEditionSheetOpen = true
                 },
             ),
     ) {
@@ -79,19 +75,19 @@ internal fun WorkoutRunning(
         )
     }
 
-    if (onLongPressed) {
-        ModalBottomSheet(onDismissRequest = { onLongPressed = false }) {
-            IconButton(
-                onClick = { onDelete() },
-                modifier = Modifier.fillMaxWidth().padding(all = AppTheme.paddings.medium)
-            ) {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    Icon(painter = painterResource(id = R.drawable.ic_delete), contentDescription = "")
-                    Text(text = "Delete")
-                }
-            }
-        }
-    }
+    if (isEditionSheetOpen) EditionSheet(
+        onDismissRequest = {
+            isEditionSheetOpen = false
+        },
+        onDelete = {
+            onDelete()
+            isEditionSheetOpen = false
+        },
+        onUpdate = {
+            onUpdate()
+            isEditionSheetOpen = false
+        },
+    )
 }
 
 @Composable

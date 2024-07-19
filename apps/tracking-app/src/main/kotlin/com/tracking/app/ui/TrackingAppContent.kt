@@ -1,4 +1,4 @@
-package com.tracking.app.ui.home
+package com.tracking.app.ui
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,17 +16,15 @@ import com.dbel.design.system.ui.primaryTopAppBarColors
 import com.tracking.app.R
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute
-import com.tracking.app.ui.running.HistoricScreenRoute
-import com.tracking.app.ui.running.RecordRunScreenRoute
-import com.tracking.app.ui.trackingScreens
+import com.tracking.app.ui.workout.HomeScreenRoute
 
 @Composable
-fun TrackingHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
+fun TrackingAppContent(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     val navController = rememberNavController()
 
     NavHostScaffold(
         navController = navController,
-        startRoute = HistoricScreenRoute,
+        startRoute = HomeScreenRoute,
         contentWindowInsets = WindowInsets(
             left = AppTheme.paddings.medium,
             right = AppTheme.paddings.medium,
@@ -54,14 +52,13 @@ private fun TopBar(
 )
 
 val routesWithPrimaryTopAppBarColor = listOf(
-    HistoricScreenRoute,
+    HomeScreenRoute,
     WeekListSummaryScreenRoute,
     ProfileScreenRoute,
 )
 
 val topAppBarTitle = mapOf(
     WeekListSummaryScreenRoute to R.string.home_tracking,
-    HistoricScreenRoute to R.string.workouts,
+    HomeScreenRoute to R.string.workouts,
     ProfileScreenRoute to R.string.home_profile,
-    RecordRunScreenRoute to R.string.record_workout,
 )
