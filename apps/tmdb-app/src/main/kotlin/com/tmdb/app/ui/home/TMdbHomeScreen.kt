@@ -10,11 +10,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
-import com.dbel.design.system.ui.BottomBar
-import com.dbel.design.system.ui.NavHostScaffold
-import com.dbel.design.system.ui.Screen
-import com.dbel.design.system.ui.TopAppBar
-import com.dbel.design.system.ui.primaryTopAppBarColors
+import com.dbel.design.system.component.BottomBar
+import com.dbel.design.system.component.NavHostScaffold
+import com.dbel.design.system.component.Screen
+import com.dbel.design.system.component.TopAppBar
+import com.dbel.design.system.component.primaryTopAppBarColors
 import com.tmdb.app.R
 import com.tmdb.app.ui.popular.PopularMovieCollectionRoute
 import com.tmdb.app.ui.tmdbScreens

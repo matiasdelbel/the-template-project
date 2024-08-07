@@ -1,4 +1,4 @@
-package com.dbel.design.system.ui
+package com.dbel.design.system.component
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

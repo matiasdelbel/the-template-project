@@ -6,15 +6,15 @@ import com.tmdb.app.model.Movie
 internal data class MovieCollectionDto(
     val results: List<MovieDto>,
     val page: Int,
-    @field:Json(name = "total_pages") val totalPages: Long,
-    @field:Json(name = "total_results") val totalResults: Long,
+    @Json(name = "total_pages") val totalPages: Long,
+    @Json(name = "total_results") val totalResults: Long,
 )
 
 internal data class MovieDto(
     val id: Long,
     val title: String,
     val overview: String,
-    @field:Json(name = "poster_path") val posterPath: String,
+    @Json(name = "poster_path") val posterPath: String,
 ) {
     fun toMovie(): Movie = Movie(
         id = id,

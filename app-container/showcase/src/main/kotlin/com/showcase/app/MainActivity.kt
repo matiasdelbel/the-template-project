@@ -13,9 +13,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
-import com.dbel.design.system.ui.NavHostScaffold
-import com.dbel.design.system.ui.TopAppBar
-import com.dbel.design.system.ui.primaryTopAppBarColors
+import com.dbel.design.system.component.NavHostScaffold
+import com.dbel.design.system.component.TopAppBar
+import com.dbel.design.system.component.primaryTopAppBarColors
 import com.rijks.app.ui.ArtCollectionRoute
 import com.rijks.app.ui.rijksScreens
 import com.showcase.app.selector.AppSelectorRoute

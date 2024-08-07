@@ -10,9 +10,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
-import com.dbel.design.system.ui.NavHostScaffold
-import com.dbel.design.system.ui.TopAppBar
-import com.dbel.design.system.ui.primaryTopAppBarColors
+import com.dbel.design.system.component.NavHostScaffold
+import com.dbel.design.system.component.TopAppBar
+import com.dbel.design.system.component.primaryTopAppBarColors
 import com.tracking.app.R
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute

@@ -1,4 +1,4 @@
-package com.dbel.design.system.ui
+package com.dbel.design.system.component
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
