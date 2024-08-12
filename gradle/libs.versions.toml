@@ -25,7 +25,7 @@ hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", vers
 
 moshi = { module = "com.squareup.moshi:moshi-kotlin", version = "1.15.0" }
 
-test-androidx-core = { group = "androidx.test", name = "core", version = "1.5.0" }
+test-androidx-core = { group = "androidx.test", name = "core", version = "1.6.1" }
 test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "1.8.1" }
 test-junit = { group = "junit", name = "junit", version = "4.13.2" }
 test-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", version = "5.4.0" }
