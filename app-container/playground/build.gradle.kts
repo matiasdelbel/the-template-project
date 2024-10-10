@@ -25,7 +25,8 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.trackingApp) // The application dependency loaded in the container
+    // The module to lunch in the playground
+    implementation(projects.apps.trackingApp)
     
     implementation(projects.foundation.designSystem)
 
@@ -53,13 +54,4 @@ dependencies {
 
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
-
-    testImplementation(libs.test.androidx.core)
-    testImplementation(libs.test.coroutines)
-    testImplementation(libs.test.junit)
-    testImplementation (libs.test.mockito)
-}
-
-kapt {
-    correctErrorTypes = true
 }

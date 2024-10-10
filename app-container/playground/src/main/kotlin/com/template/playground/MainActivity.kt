@@ -18,9 +18,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * The main composable function from the app using the container.
+ */
 @Composable
-fun AppContent() = TrackingAppContent() // The main composable function from the app using the container.
+private fun AppContent() = TrackingAppContent()
 
 @Preview(showBackground = true)
 @Composable
-fun AppPreview() = AppTheme { AppContent() }
+private fun AppPreview() = AppTheme { AppContent() }

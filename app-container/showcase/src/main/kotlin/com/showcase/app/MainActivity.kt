@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
-fun AppContent(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
+private fun AppContent() = Surface(modifier = Modifier) {
     val navController = rememberNavController()
 
     NavHostScaffold(
@@ -78,9 +78,9 @@ fun AppContent(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     }
 }
 
-val routesWithPrimaryTopAppBarColor = HolidaysBudgetScreens.topRoutes + RijksScreens.topRoutes + TmdbScreens.topRoutes + TrackingScreens.topRoutes
-val routesWithoutNavigationIcon = listOf(AppSelectorRoute) + HolidaysBudgetScreens.topRoutes + RijksScreens.topRoutes + TmdbScreens.topRoutes  + TrackingScreens.topRoutes
-
 @Preview(showBackground = true)
 @Composable
-fun AppPreview() = AppTheme { AppContent() }
+private fun AppPreview() = AppTheme { AppContent() }
+
+val routesWithPrimaryTopAppBarColor = HolidaysBudgetScreens.topRoutes + RijksScreens.topRoutes + TmdbScreens.topRoutes + TrackingScreens.topRoutes
+val routesWithoutNavigationIcon = listOf(AppSelectorRoute) + HolidaysBudgetScreens.topRoutes + RijksScreens.topRoutes + TmdbScreens.topRoutes  + TrackingScreens.topRoutes
