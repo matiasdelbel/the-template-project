@@ -36,7 +36,7 @@ fun AppHeader(
             2 -> stringResource(id = R.string.tracking_app_description)
             else -> error("Invalid page: $page")
         },
-        modifier = Modifier.padding(top = AppTheme.paddings.small)
+        modifier = Modifier.padding(top = AppTheme.paddings.sm)
     )
 
     Row {

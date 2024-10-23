@@ -8,4 +8,4 @@ fun NavGraphBuilder.homePane() = composable(
     content = { TMdbHome() }
 )
 
-private const val TMdbHomeRoute = "movies/home"
+const val TMdbHomeRoute = "movies/home"

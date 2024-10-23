@@ -29,15 +29,15 @@ fun EditionSheet(
             text = "Update workout",
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
-                .padding(top = AppTheme.paddings.medium)
-                .padding(horizontal = AppTheme.paddings.medium)
+                .padding(top = AppTheme.paddings.md)
+                .padding(horizontal = AppTheme.paddings.md)
         )
 
         TextButton(
             onClick = { onUpdate() },
             modifier = Modifier
-                .padding(top = AppTheme.paddings.small)
-                .padding(horizontal = AppTheme.paddings.medium)
+                .padding(top = AppTheme.paddings.sm)
+                .padding(horizontal = AppTheme.paddings.md)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -45,7 +45,7 @@ fun EditionSheet(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_edit),
                     contentDescription = "",
-                    modifier = Modifier.padding(end = AppTheme.paddings.small)
+                    modifier = Modifier.padding(end = AppTheme.paddings.sm)
                 )
                 Text(text = "Update")
             }
@@ -54,8 +54,8 @@ fun EditionSheet(
         TextButton(
             onClick = { onDelete() },
             modifier = Modifier
-                .padding(bottom = AppTheme.paddings.medium)
-                .padding(horizontal = AppTheme.paddings.medium)
+                .padding(bottom = AppTheme.paddings.md)
+                .padding(horizontal = AppTheme.paddings.md)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -64,7 +64,7 @@ fun EditionSheet(
                     painter = painterResource(id = R.drawable.ic_delete),
                     contentDescription = "",
                     tint = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(end = AppTheme.paddings.small)
+                    modifier = Modifier.padding(end = AppTheme.paddings.sm)
                 )
                 Text(
                     text = "Delete",

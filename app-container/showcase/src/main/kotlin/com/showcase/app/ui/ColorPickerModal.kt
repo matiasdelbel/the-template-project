@@ -38,8 +38,8 @@ fun ColorSchemePickerModal(
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
-            .padding(horizontal = AppTheme.paddings.medium)
-            .padding(bottom = AppTheme.paddings.extraLarge)
+            .padding(horizontal = AppTheme.paddings.md)
+            .padding(bottom = AppTheme.paddings.xl)
     ) {
         Text(
             text = "Colors",
@@ -50,8 +50,8 @@ fun ColorSchemePickerModal(
             text = "Primary",
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(
-                top = AppTheme.paddings.extraSmall,
-                bottom = AppTheme.paddings.small,
+                top = AppTheme.paddings.xs,
+                bottom = AppTheme.paddings.sm,
             )
         )
 
@@ -81,8 +81,8 @@ private fun ColorButton(
     Surface(
         color = color,
         modifier = Modifier
-            .size(AppTheme.paddings.extraLarge)
-            .clip(RoundedCornerShape(AppTheme.paddings.small))
+            .size(AppTheme.paddings.xl)
+            .clip(RoundedCornerShape(AppTheme.paddings.sm))
     ) {
         Checkbox(
             checked = checked,

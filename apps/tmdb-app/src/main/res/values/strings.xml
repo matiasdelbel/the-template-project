@@ -5,20 +5,14 @@
     <string name="upcoming">Upcoming</string>
     <string name="populars">Populars</string>
 
+    <string name="movie_placeholder">A movie poster</string>
+
     <string name="art_object">Art Object</string>
-    <string name="art_object_image_placeholder">Art object image placeholder</string>
     <string name="close">Close</string>
     <string name="close_art_object">Close art object %1$s</string>
-    <string name="de_nachtwacht_rembrandt">De Nachtwacht, Rembrandt van Rijn, 1642.</string>
-    <string name="finishing_date">Finishing date</string>
-    <string name="materials">Materials</string>
-    <string name="measures">Measures</string>
     <string name="load_more">Load more</string>
-    <string name="loading_art_collection">Loading the art collection…</string>
-    <string name="principal_makers">Principal makers</string>
     <string name="try_again">Try again</string>
     <string name="retry">Retry</string>
     <string name="seems_that_we_cannot_retrieve_more_information_about">Seems that we cannot retrieve more information about %1$s.</string>
     <string name="seems_that_we_are_having_some_issues_loading_the_collection">Seems that we are having some issues loading the collection.</string>
-    <string name="ups_something_went_wrong">Ups! Something went wrong…</string>
 </resources>

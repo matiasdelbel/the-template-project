@@ -45,8 +45,8 @@ internal fun AppSelector(modifier: Modifier = Modifier) {
             .contentWindowInsets
             .add(
                 insets = WindowInsets(
-                    left = AppTheme.paddings.medium,
-                    right = AppTheme.paddings.medium
+                    left = AppTheme.paddings.md,
+                    right = AppTheme.paddings.md
                 )
             ),
         topBar = {
@@ -75,8 +75,9 @@ internal fun AppSelector(modifier: Modifier = Modifier) {
 
                         AppPreview(
                             page = page,
+                            darkColorScheme = appsColorSchemeState[page],
                             lightColorScheme = appsColorSchemeState[page],
-                            modifier = Modifier.padding(horizontal = AppTheme.paddings.small)
+                            modifier = Modifier.padding(horizontal = AppTheme.paddings.sm)
                         )
                     }
 

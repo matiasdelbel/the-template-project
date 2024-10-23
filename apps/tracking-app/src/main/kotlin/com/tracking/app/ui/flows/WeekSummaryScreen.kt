@@ -42,8 +42,8 @@ fun WeekSummaryScreen(
                 water = { WaterTrackRow(bottles = Random.nextInt(until = 6), error = false) },
                 modifier = Modifier
                     .clickable { onClick() }
-                    .padding(horizontal = AppTheme.paddings.medium)
-                    .padding(top = AppTheme.paddings.small)
+                    .padding(horizontal = AppTheme.paddings.md)
+                    .padding(top = AppTheme.paddings.sm)
             )
         }
     }
@@ -60,4 +60,4 @@ private fun Week(weekNumber: Int, modifier: Modifier = Modifier) = Text(
 private fun Modifier.header() = this then Modifier
     .background(MaterialTheme.colorScheme.background)
     .fillMaxWidth()
-    .padding(horizontal = AppTheme.paddings.medium, vertical = AppTheme.paddings.small)
+    .padding(horizontal = AppTheme.paddings.md, vertical = AppTheme.paddings.sm)

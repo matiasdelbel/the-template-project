@@ -22,7 +22,7 @@ fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     NavHostScaffold(
         navController = navController,
         startRoute = ArtCollectionRoute,
-        contentWindowInsets = WindowInsets(left = AppTheme.paddings.small, right = AppTheme.paddings.small),
+        contentWindowInsets = WindowInsets(left = AppTheme.paddings.sm, right = AppTheme.paddings.sm),
         builder = { rijksScreens(navController)  },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
     )

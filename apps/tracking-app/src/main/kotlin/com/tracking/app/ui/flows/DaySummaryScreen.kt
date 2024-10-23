@@ -25,13 +25,13 @@ import kotlin.random.Random
 fun DaySummaryScreen(modifier: Modifier = Modifier) = Column(
     modifier = modifier
         .fillMaxWidth()
-        .padding(all = AppTheme.paddings.medium)
+        .padding(all = AppTheme.paddings.md)
 ) {
     var showEdition by remember { mutableStateOf(value = false) }
 
     Date(
         day = LocalDate.now(),
-        modifier = Modifier.padding(bottom = AppTheme.paddings.extraSmall)
+        modifier = Modifier.padding(bottom = AppTheme.paddings.xs)
     )
     DaySummary(
         flexibility = { FlexibilityTrackRow(minutes = Random.nextInt(until = 50), error = true, showEdition = showEdition) },
@@ -41,10 +41,10 @@ fun DaySummaryScreen(modifier: Modifier = Modifier) = Column(
 
     if (showEdition) Button(
         onClick = { showEdition = false },
-        modifier = Modifier.padding(top = AppTheme.paddings.medium).fillMaxWidth()
+        modifier = Modifier.padding(top = AppTheme.paddings.md).fillMaxWidth()
     ) { Text(text = "Save") }
     else TextButton(
         onClick = { showEdition = true },
-        modifier = Modifier.padding(top = AppTheme.paddings.medium).fillMaxWidth()
+        modifier = Modifier.padding(top = AppTheme.paddings.md).fillMaxWidth()
     ) { Text(text = "Edit") }
 }

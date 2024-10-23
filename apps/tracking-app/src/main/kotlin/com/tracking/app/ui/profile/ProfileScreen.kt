@@ -24,7 +24,7 @@ import com.dbel.design.system.theme.AppTheme
 @Composable
 fun ProfileScreen(
     modifier: Modifier = Modifier
-) = Column(modifier = modifier.fillMaxSize().padding(all = AppTheme.paddings.medium)) {
+) = Column(modifier = modifier.fillMaxSize().padding(all = AppTheme.paddings.md)) {
     Row(verticalAlignment = Alignment.CenterVertically,) {
         Icon(
             imageVector = Icons.Default.Person,
@@ -32,19 +32,19 @@ fun ProfileScreen(
             modifier = Modifier
                 .clip(shape = CircleShape)
                 .background(color = MaterialTheme.colorScheme.secondary)
-                .size(AppTheme.paddings.extraLarge)
-                .padding(all = AppTheme.paddings.extraSmall)
+                .size(AppTheme.paddings.xl)
+                .padding(all = AppTheme.paddings.xs)
         )
         Text(
             text = "Matias Del Bel",
             modifier = Modifier
-                .padding(start = AppTheme.paddings.small)
+                .padding(start = AppTheme.paddings.sm)
         )
     }
 
     TextButton(
         onClick = {},
-        modifier = Modifier.fillMaxWidth().padding(top = AppTheme.paddings.small)
+        modifier = Modifier.fillMaxWidth().padding(top = AppTheme.paddings.sm)
     ) {
         Text(text = "Edit profile")
     }

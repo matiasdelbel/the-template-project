@@ -21,8 +21,8 @@ fun <T : Any> PagingGrid(
     loadStateRefreshError: LazyGridScope.(LazyPagingItems<T>) -> Unit = {},
 ) = LazyVerticalGrid(
     columns = GridCells.Fixed(count = 3),
-    horizontalArrangement = Arrangement.spacedBy(space = AppTheme.paddings.extraSmall),
-    verticalArrangement = Arrangement.spacedBy(space = AppTheme.paddings.extraSmall),
+    horizontalArrangement = Arrangement.spacedBy(space = AppTheme.paddings.xs),
+    verticalArrangement = Arrangement.spacedBy(space = AppTheme.paddings.xs),
     modifier = modifier
 ) {
     items(items.itemCount) { index ->

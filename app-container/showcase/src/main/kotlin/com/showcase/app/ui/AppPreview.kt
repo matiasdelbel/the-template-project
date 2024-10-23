@@ -5,16 +5,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.dbel.design.system.theme.AppTheme
 import com.tracking.app.ui.TrackingAppContent
-import com.tmdb.app.ui.home.TMdbHome as TMdbHome
+import com.tmdb.app.ui.home.TMdbHome
 import com.rijks.app.ui.HomeScreen as RijksHomeScreen
 
 @Composable
 fun AppPreview(
     page: Int,
+    darkColorScheme: ColorScheme,
     lightColorScheme: ColorScheme,
     modifier: Modifier = Modifier
 ) {
     AppTheme(
+        darkColorScheme = darkColorScheme,
         lightColorScheme = lightColorScheme,
         statusBarColor = {},
     ) {

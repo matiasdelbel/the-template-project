@@ -31,7 +31,7 @@ private fun TrackRow(
     colors: TrackRowColors = TrackRowDefaults.colors(),
 ) = Row(
     verticalAlignment = Alignment.CenterVertically,
-    modifier = modifier.defaultMinSize(minHeight = AppTheme.paddings.extraLarge)
+    modifier = modifier.defaultMinSize(minHeight = AppTheme.paddings.xl)
 ) {
     val contentColor by colors.contentColor(error = error)
 

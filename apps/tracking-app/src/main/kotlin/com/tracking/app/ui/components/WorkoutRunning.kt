@@ -56,11 +56,11 @@ internal fun WorkoutRunning(
                 style = MaterialTheme.typography.titleMedium,
             )
 
-            Row(modifier = Modifier.padding(top = AppTheme.paddings.extraSmall)) {
+            Row(modifier = Modifier.padding(top = AppTheme.paddings.xs)) {
                 TextWithIcon(
                     text = duration,
                     painter = painterResource(id = R.drawable.ic_time),
-                    modifier = Modifier.padding(end = AppTheme.paddings.medium)
+                    modifier = Modifier.padding(end = AppTheme.paddings.md)
                 )
 
                 TextWithIcon(
@@ -100,7 +100,7 @@ private fun TextWithIcon(
     Icon(
         painter = painter,
         contentDescription = text,
-        modifier = Modifier.padding(end = AppTheme.paddings.extraSmall)
+        modifier = Modifier.padding(end = AppTheme.paddings.xs)
     )
     Text(text = text, style = style)
 }
