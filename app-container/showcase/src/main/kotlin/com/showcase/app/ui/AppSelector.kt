@@ -33,7 +33,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 internal fun AppSelector(modifier: Modifier = Modifier) {
     val colorScheme = MaterialTheme.colorScheme
     val appsColorSchemeState = remember {
-        mutableStateListOf(colorScheme, colorScheme, colorScheme, colorScheme, colorScheme)
+        mutableStateListOf(colorScheme, colorScheme, colorScheme)
     }
     val appsPagerState = rememberPagerState(pageCount = { appsColorSchemeState.size })
     val coroutineScope = rememberCoroutineScope()

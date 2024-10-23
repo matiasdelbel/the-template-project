@@ -22,7 +22,7 @@ import com.tmdb.app.ui.top.TopRatedMovieCollectionRoute
 import com.tmdb.app.ui.upcoming.UpcomingMovieCollectionRoute
 
 @Composable
-fun TMdbHomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
+fun TMdbHome(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     val navController = rememberNavController()
 
     NavHostScaffold(

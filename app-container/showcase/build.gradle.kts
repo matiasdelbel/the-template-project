@@ -25,11 +25,9 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.holidaysBudgetApp)
     implementation(projects.apps.rijksApp)
     implementation(projects.apps.trackingApp)
     implementation(projects.apps.tmdbApp)
-    implementation(projects.apps.triominos)
 
     implementation(projects.foundation.designSystem)
 
