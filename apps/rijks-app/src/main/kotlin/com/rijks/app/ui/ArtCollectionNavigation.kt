@@ -17,4 +17,4 @@ fun NavGraphBuilder.artCollectionScreen(
     ArtCollection(artObjects) { artObject -> onArtObjectSelected(artObject) }
 }
 
-const val ArtCollectionRoute = "art_collection"
+internal const val ArtCollectionRoute = "art_collection"

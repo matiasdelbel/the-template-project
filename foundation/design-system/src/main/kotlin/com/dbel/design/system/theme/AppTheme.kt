@@ -28,7 +28,8 @@ fun AppTheme(
     lightColorScheme: ColorScheme = PurpleColorScheme.lightColorScheme(),
     paddings: Paddings = DefaultPaddings,
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true, // Dynamic color is available on Android 12+
+    dynamicColor: Boolean = false, // Dynamic color is available on Android 12+
+    statusBarColor: @Composable () -> Unit = { PrimaryStatusBar(darkTheme) },
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -41,14 +42,7 @@ fun AppTheme(
     }
 
     val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
-        }
-    }
+    if (!view.isInEditMode) { statusBarColor() }
 
     CompositionLocalProvider(
         LocalPaddings provides paddings
@@ -58,5 +52,18 @@ fun AppTheme(
             typography = Typography,
             content = content
         )
+    }
+}
+
+@Composable
+private fun PrimaryStatusBar(darkTheme: Boolean) {
+    val view = LocalView.current
+    val colorScheme = MaterialTheme.colorScheme
+
+    SideEffect {
+        val window = (view.context as Activity).window
+
+        window.statusBarColor = colorScheme.primary.toArgb()
+        WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
     }
 }

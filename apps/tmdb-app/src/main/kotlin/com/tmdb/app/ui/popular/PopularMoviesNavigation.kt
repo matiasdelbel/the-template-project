@@ -6,8 +6,6 @@ import androidx.navigation.compose.composable
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.tmdb.app.ui.MovieCollection
 
-const val PopularMovieCollectionRoute = "movies/popular"
-
 fun NavGraphBuilder.popularMoviesScreens() = composable(
     route = PopularMovieCollectionRoute
 ) {
@@ -16,3 +14,5 @@ fun NavGraphBuilder.popularMoviesScreens() = composable(
 
     MovieCollection(movies = populars)
 }
+
+internal const val PopularMovieCollectionRoute = "movies/popular"
