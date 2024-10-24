@@ -31,7 +31,7 @@ internal fun NavGraphBuilder.workoutScreens(navController: NavController) {
                 navController.navigate(route = updateRunScreen)
             },
             modifier = Modifier
-                .padding(top = AppTheme.paddings.md)
+                .padding(top = AppTheme.spacers.md)
                 .fillMaxSize()
         )
     }

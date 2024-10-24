@@ -3,7 +3,6 @@ package com.showcase.app.ui
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -26,7 +25,7 @@ fun AppHeader(
             2 -> stringResource(id = R.string.tracking_app_name)
             else -> error("Invalid page: $page")
         },
-        style = MaterialTheme.typography.titleMedium
+        style = AppTheme.typography.titleMedium
     )
 
     Text(
@@ -36,7 +35,7 @@ fun AppHeader(
             2 -> stringResource(id = R.string.tracking_app_description)
             else -> error("Invalid page: $page")
         },
-        modifier = Modifier.padding(top = AppTheme.paddings.sm)
+        modifier = Modifier.padding(top = AppTheme.spacers.sm)
     )
 
     Row {

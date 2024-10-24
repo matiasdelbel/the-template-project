@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -27,17 +26,17 @@ fun EditionSheet(
     Column {
         Text(
             text = "Update workout",
-            style = MaterialTheme.typography.titleLarge,
+            style = AppTheme.typography.titleLarge,
             modifier = Modifier
-                .padding(top = AppTheme.paddings.md)
-                .padding(horizontal = AppTheme.paddings.md)
+                .padding(top = AppTheme.spacers.md)
+                .padding(horizontal = AppTheme.spacers.md)
         )
 
         TextButton(
             onClick = { onUpdate() },
             modifier = Modifier
-                .padding(top = AppTheme.paddings.sm)
-                .padding(horizontal = AppTheme.paddings.md)
+                .padding(top = AppTheme.spacers.sm)
+                .padding(horizontal = AppTheme.spacers.md)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -45,7 +44,7 @@ fun EditionSheet(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_edit),
                     contentDescription = "",
-                    modifier = Modifier.padding(end = AppTheme.paddings.sm)
+                    modifier = Modifier.padding(end = AppTheme.spacers.sm)
                 )
                 Text(text = "Update")
             }
@@ -54,8 +53,8 @@ fun EditionSheet(
         TextButton(
             onClick = { onDelete() },
             modifier = Modifier
-                .padding(bottom = AppTheme.paddings.md)
-                .padding(horizontal = AppTheme.paddings.md)
+                .padding(bottom = AppTheme.spacers.md)
+                .padding(horizontal = AppTheme.spacers.md)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -63,12 +62,12 @@ fun EditionSheet(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_delete),
                     contentDescription = "",
-                    tint = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(end = AppTheme.paddings.sm)
+                    tint = AppTheme.colorScheme.error,
+                    modifier = Modifier.padding(end = AppTheme.spacers.sm)
                 )
                 Text(
                     text = "Delete",
-                    color = MaterialTheme.colorScheme.error
+                    color = AppTheme.colorScheme.error
                 )
             }
         }

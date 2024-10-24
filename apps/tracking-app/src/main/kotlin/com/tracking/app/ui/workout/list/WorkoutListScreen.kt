@@ -35,7 +35,7 @@ fun WorkoutListScreen(
                         distanceKm = it.distanceKm,
                         duration = it.duration,
                         averagePace = it.averagePace,
-                        modifier = Modifier.padding(all = AppTheme.paddings.md),
+                        modifier = Modifier.padding(all = AppTheme.spacers.md),
                         onDelete = { viewModel.delete(it) },
                         onUpdate = { onUpdateWorkout(it.workout.id) },
                     )

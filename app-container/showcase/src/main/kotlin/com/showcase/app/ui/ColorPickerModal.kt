@@ -2,6 +2,7 @@ package com.showcase.app.ui
 
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +15,6 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.Surface
@@ -24,6 +24,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import com.dbel.design.system.theme.AppTheme
+import com.dbel.design.system.theme.BrownColorScheme
+import com.dbel.design.system.theme.IndigoColorScheme
+import com.dbel.design.system.theme.LimeColorScheme
+import com.dbel.design.system.theme.PinkColorScheme
+import com.dbel.design.system.theme.TealColorScheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,21 +43,13 @@ fun ColorSchemePickerModal(
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
-            .padding(horizontal = AppTheme.paddings.md)
-            .padding(bottom = AppTheme.paddings.xl)
+            .padding(horizontal = AppTheme.spacers.md)
+            .padding(bottom = AppTheme.spacers.xl)
     ) {
         Text(
-            text = "Colors",
-            style = MaterialTheme.typography.headlineSmall,
-        )
-
-        Text(
-            text = "Primary",
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(
-                top = AppTheme.paddings.xs,
-                bottom = AppTheme.paddings.sm,
-            )
+            text = "Color scheme",
+            style = AppTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = AppTheme.spacers.md)
         )
 
         Row(
@@ -61,11 +58,11 @@ fun ColorSchemePickerModal(
                 .fillMaxWidth()
                 .scrollable(rememberScrollState(), Orientation.Horizontal)
         ) {
-            listOf(primary, deepOrange, pink, green, teal, lightBlue).forEach { color ->
+            AvailableColorSchemes.forEach { color ->
                 ColorButton(
-                    color = color,
-                    checked = colorScheme.primary == color,
-                    onCheckedChange = { update(colorScheme.copy(primary = color)) }
+                    color = color.primary,
+                    checked = colorScheme == color,
+                    onCheckedChange = { update(color) }
                 )
             }
         }
@@ -81,8 +78,8 @@ private fun ColorButton(
     Surface(
         color = color,
         modifier = Modifier
-            .size(AppTheme.paddings.xl)
-            .clip(RoundedCornerShape(AppTheme.paddings.sm))
+            .size(AppTheme.spacers.xl)
+            .clip(RoundedCornerShape(AppTheme.spacers.sm))
     ) {
         Checkbox(
             checked = checked,
@@ -95,9 +92,17 @@ private fun ColorButton(
     }
 }
 
-private val primary @Composable get() = MaterialTheme.colorScheme.primary
-private val deepOrange = Color(color = 0xffD84315)
-private val pink = Color(color = 0xffE91E63)
-private val green = Color(color = 0xff4CAF50)
-private val teal = Color(color = 0xFF009688)
-private val lightBlue = Color(color = 0xff03A9F4)
+private val AvailableColorSchemes
+    @Composable get(): List<ColorScheme> {
+        val colorSchemes = listOf(
+            PinkColorScheme,
+            LimeColorScheme,
+            BrownColorScheme,
+            IndigoColorScheme,
+            TealColorScheme,
+        )
+
+        return colorSchemes
+            .map { if (isSystemInDarkTheme()) it.darkColorScheme() else it.lightColorScheme() }
+            .let { it.toMutableList().apply { add(0, AppTheme.colorScheme) } }
+    }

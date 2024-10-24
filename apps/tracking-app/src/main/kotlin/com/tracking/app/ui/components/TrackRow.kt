@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -31,7 +30,7 @@ private fun TrackRow(
     colors: TrackRowColors = TrackRowDefaults.colors(),
 ) = Row(
     verticalAlignment = Alignment.CenterVertically,
-    modifier = modifier.defaultMinSize(minHeight = AppTheme.paddings.xl)
+    modifier = modifier.defaultMinSize(minHeight = AppTheme.spacers.xl)
 ) {
     val contentColor by colors.contentColor(error = error)
 
@@ -39,12 +38,12 @@ private fun TrackRow(
         Text(
             text = title,
             color = contentColor,
-            style = MaterialTheme.typography.titleMedium
+            style = AppTheme.typography.titleMedium
         )
         Text(
             text = description,
             color = contentColor,
-            style = MaterialTheme.typography.labelSmall
+            style = AppTheme.typography.labelSmall
         )
     }
 
@@ -122,7 +121,7 @@ internal object TrackRowDefaults {
 
     @Composable
     fun colors() = TrackRowColors(
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        contentErrorColor = MaterialTheme.colorScheme.error,
+        contentColor = AppTheme.colorScheme.onSurface,
+        contentErrorColor = AppTheme.colorScheme.error,
     )
 }

@@ -37,7 +37,7 @@ fun CreateWorkoutScreen(
         date = viewModel.dateString,
         onDateUpdated = { viewModel.updateDate(it) },
         modifier = Modifier
-            .padding(top = AppTheme.paddings.md)
+            .padding(top = AppTheme.spacers.md)
             .fillMaxWidth()
     )
 
@@ -46,7 +46,7 @@ fun CreateWorkoutScreen(
         isError = viewModel.distanceKmInputError,
         onFieldChange = { viewModel.updateDistance(it) },
         modifier = Modifier
-            .padding(top = AppTheme.paddings.sm)
+            .padding(top = AppTheme.spacers.sm)
             .fillMaxWidth()
     )
 
@@ -55,7 +55,7 @@ fun CreateWorkoutScreen(
         isError = viewModel.durationFieldError,
         onFieldChange = { viewModel.updateDuration(it) },
         modifier = Modifier
-            .padding(top = AppTheme.paddings.sm)
+            .padding(top = AppTheme.spacers.sm)
             .fillMaxWidth()
     )
 
@@ -64,7 +64,7 @@ fun CreateWorkoutScreen(
         isError = viewModel.averagePaceFieldError,
         onFieldChange = { viewModel.updateAveragePace(it) },
         modifier = Modifier
-            .padding(top = AppTheme.paddings.sm)
+            .padding(top = AppTheme.spacers.sm)
             .fillMaxWidth()
     )
 
@@ -72,7 +72,7 @@ fun CreateWorkoutScreen(
         onClick = { viewModel.saveWorkout() },
         content = { Text(text = "Save") },
         modifier = Modifier
-            .padding(top = AppTheme.paddings.sm)
+            .padding(top = AppTheme.spacers.sm)
             .align(Alignment.End)
     )
 }
@@ -99,7 +99,7 @@ private fun WorkoutRunningCard(
         date = viewModel.dateString,
         distanceKm = distanceKm,
         duration = duration,
-        modifier = Modifier.padding(all = AppTheme.paddings.md)
+        modifier = Modifier.padding(all = AppTheme.spacers.md)
     )
 }
 

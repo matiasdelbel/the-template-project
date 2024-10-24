@@ -9,7 +9,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.Card
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import com.dbel.design.system.theme.AppTheme
 import com.rijks.app.model.ArtObjectOverview
 import com.tmdb.app.R
 
@@ -90,7 +90,7 @@ fun LazyListScope.refreshLoadState(items: LazyPagingItems<ArtObjectOverview>) = 
 
 @Composable
 fun Artist(name: String, modifier: Modifier = Modifier) = Text(
-    style = MaterialTheme.typography.titleLarge,
+    style = AppTheme.typography.titleLarge,
     text = name,
     fontWeight = FontWeight.Bold,
     modifier = modifier
@@ -119,7 +119,7 @@ private fun ArtObjectPlaceholder(
 
         Text(
             text = stringResource(R.string.de_nachtwacht_rembrandt),
-            style = MaterialTheme.typography.titleSmall,
+            style = AppTheme.typography.titleSmall,
             modifier = modifier
                 .padding(all = 16.dp)
                 .blur(6.dp)

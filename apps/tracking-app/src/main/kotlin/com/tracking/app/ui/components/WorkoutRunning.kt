@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -53,14 +52,14 @@ internal fun WorkoutRunning(
         Column(modifier = Modifier.weight(0.8f)) {
             Text(
                 text = date,
-                style = MaterialTheme.typography.titleMedium,
+                style = AppTheme.typography.titleMedium,
             )
 
-            Row(modifier = Modifier.padding(top = AppTheme.paddings.xs)) {
+            Row(modifier = Modifier.padding(top = AppTheme.spacers.xs)) {
                 TextWithIcon(
                     text = duration,
                     painter = painterResource(id = R.drawable.ic_time),
-                    modifier = Modifier.padding(end = AppTheme.paddings.md)
+                    modifier = Modifier.padding(end = AppTheme.spacers.md)
                 )
 
                 TextWithIcon(
@@ -100,7 +99,7 @@ private fun TextWithIcon(
     Icon(
         painter = painter,
         contentDescription = text,
-        modifier = Modifier.padding(end = AppTheme.paddings.xs)
+        modifier = Modifier.padding(end = AppTheme.spacers.xs)
     )
     Text(text = text, style = style)
 }

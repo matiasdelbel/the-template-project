@@ -120,7 +120,7 @@ private fun Movie(
     contentDescription: String,
     modifier: Modifier = Modifier,
 ) = AsyncImage(
-    modifier = modifier.clip(RoundedCornerShape(size = AppTheme.paddings.xs)),
+    modifier = modifier.clip(RoundedCornerShape(size = AppTheme.spacers.xs)),
     model = imageUrl,
     contentScale = ContentScale.FillWidth,
     contentDescription = contentDescription
@@ -134,7 +134,7 @@ private fun MoviePlaceholder(
     painter = painter,
     contentDescription = stringResource(R.string.movie_placeholder),
     alpha = 0.28f,
-    modifier = modifier.clip(RoundedCornerShape(size = AppTheme.paddings.xs))
+    modifier = modifier.clip(RoundedCornerShape(size = AppTheme.spacers.xs))
 )
 
 @Composable
@@ -146,7 +146,7 @@ fun Error(
 ) = Card(modifier = modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(all = AppTheme.paddings.md)
+        modifier = Modifier.padding(all = AppTheme.spacers.md)
     ) {
         Text(text = label, textAlign = TextAlign.Center)
         TextButton(onClick = { onAction() }) { Text(text = actionLabel) }

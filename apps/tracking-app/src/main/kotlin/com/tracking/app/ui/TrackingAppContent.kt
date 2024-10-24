@@ -3,7 +3,6 @@ package com.tracking.app.ui
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Surface
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -12,7 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
 import com.dbel.design.system.component.NavHostScaffold
 import com.dbel.design.system.component.TopAppBar
-import com.dbel.design.system.component.primaryTopAppBarColors
 import com.tracking.app.R
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute
@@ -26,10 +24,10 @@ fun TrackingAppContent(modifier: Modifier = Modifier) = Surface(modifier = modif
         navController = navController,
         startRoute = HomeScreenRoute,
         contentWindowInsets = WindowInsets(
-            left = AppTheme.paddings.md,
-            right = AppTheme.paddings.md,
-            top = AppTheme.paddings.md,
-            bottom = AppTheme.paddings.md,
+            left = AppTheme.spacers.md,
+            right = AppTheme.spacers.md,
+            top = AppTheme.spacers.md,
+            bottom = AppTheme.spacers.md,
         ),
         builder = { trackingScreens(navController) },
         topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
@@ -43,10 +41,6 @@ private fun TopBar(
     onNavigateUp: () -> Unit
 ) = TopAppBar(
     title = topAppBarTitle[currentDestination.route]?.let { stringResource(id = it) } ?: "",
-    colors = when (currentDestination.route) {
-        in routesWithPrimaryTopAppBarColor -> TopAppBarDefaults.primaryTopAppBarColors()
-        else -> TopAppBarDefaults.topAppBarColors()
-    },
     isNavigationIconVisible = currentDestination.route !in routesWithPrimaryTopAppBarColor,
     onNavigateUp = onNavigateUp
 )

@@ -6,7 +6,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Immutable
-data class Paddings(
+data class Spacers(
     val none: Dp = Dp.Unspecified,
     val xxs: Dp = Dp.Unspecified,
     val xs: Dp = Dp.Unspecified,
@@ -16,9 +16,9 @@ data class Paddings(
     val xl: Dp = Dp.Unspecified,
 )
 
-val LocalPaddings = staticCompositionLocalOf { Paddings() }
+val LocalSpacers = staticCompositionLocalOf { Spacers() }
 
-internal val DefaultPaddings = Paddings(
+internal val DefaultSpacers = Spacers(
     none = 0.dp,
     xxs = 2.dp,
     xs = 4.dp,

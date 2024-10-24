@@ -1,8 +1,6 @@
 package com.tracking.app.ui.components
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,7 +38,7 @@ internal fun DaySummary(
 @Composable
 internal fun Date(day: LocalDate, modifier: Modifier = Modifier) = Text(
     text = day.format(DaySummaryDefaults.DatePattern),
-    style = MaterialTheme.typography.headlineSmall,
+    style = AppTheme.typography.headlineSmall,
     modifier = modifier,
 )
 
@@ -66,7 +64,7 @@ internal object DaySummaryDefaults {
 
     @Composable
     fun colors() = DaySummaryColors(
-        containerColor = MaterialTheme.colorScheme.background,
-        containerHighlightColor = MaterialTheme.colorScheme.surface,
+        containerColor = AppTheme.colorScheme.background,
+        containerHighlightColor = AppTheme.colorScheme.surface,
     )
 }

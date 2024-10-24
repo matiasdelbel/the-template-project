@@ -11,7 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
 import com.dbel.design.system.component.NavHostScaffold
 import com.dbel.design.system.component.TopAppBar
-import com.dbel.design.system.component.primaryTopAppBarColors
 import com.tmdb.app.R
 import com.tmdb.app.ui.listing.MoviesRoute
 import com.tmdb.app.ui.listing.moviesPane
@@ -24,8 +23,8 @@ fun TMdbHome(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
         navController = navController,
         startRoute = MoviesRoute,
         contentWindowInsets = WindowInsets(
-            left = AppTheme.paddings.sm,
-            right = AppTheme.paddings.sm
+            left = AppTheme.spacers.sm,
+            right = AppTheme.spacers.sm
         ),
         builder = { moviesPane() },
         topBar = { TopBar { navController.navigateUp()} },
@@ -36,7 +35,11 @@ fun TMdbHome(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
 @Composable
 private fun TopBar(onNavigateUp: () -> Unit) = TopAppBar(
     title = stringResource(id = R.string.tmdb_app_name),
-    colors = TopAppBarDefaults.primaryTopAppBarColors(),
+    colors = TopAppBarDefaults.topAppBarColors(
+        containerColor = AppTheme.colorScheme.primary,
+        titleContentColor = AppTheme.colorScheme.onPrimary,
+        navigationIconContentColor = AppTheme.colorScheme.onPrimary,
+    ),
     isNavigationIconVisible = false,
     onNavigateUp = onNavigateUp
 )
