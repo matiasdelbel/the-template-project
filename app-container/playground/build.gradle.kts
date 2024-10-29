@@ -26,7 +26,7 @@ android {
 
 dependencies {
     // The module to lunch in the playground
-    implementation(projects.apps.trackingApp)
+    implementation(projects.apps.holidaysApp)
     
     implementation(projects.foundation.designSystem)
 

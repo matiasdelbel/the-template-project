@@ -2,6 +2,7 @@
 
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.android.hilt)
 
     kotlin("kapt")
 }
@@ -22,6 +23,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.compose.paging)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.logging)

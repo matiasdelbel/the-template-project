@@ -12,4 +12,7 @@
 
     <string name="tracking_app_name">Tracking</string>
     <string name="tracking_app_description">Tracks how much progress you accomplish in these key areas of your life. Every day you can see how you are finishing the goals set for you.</string>
+
+    <string name="holidays_app_name">Holidays</string>
+    <string name="holidays_app_description">This app helps you to plan your next holidays. You can track the places, itinerary, hotels and more using this application,</string>
 </resources>

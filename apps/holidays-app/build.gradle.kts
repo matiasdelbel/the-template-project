@@ -1,20 +1,14 @@
 @file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.android.application.compose)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.library.compose)
     alias(libs.plugins.android.hilt)
 
     kotlin("kapt")
 }
 
 android {
-    namespace = "com.showcase.app"
-
-    defaultConfig {
-        applicationId = "com.showcase.app"
-        versionCode = 1
-        versionName = "1.0"
-    }
+    namespace = "com.holidays.app"
 
     buildTypes {
         release {
@@ -25,11 +19,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.holidaysApp)
-    implementation(projects.apps.rijksApp)
-    implementation(projects.apps.tmdbApp)
-    implementation(projects.apps.trackingApp)
-
+    implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 
     implementation(libs.androidx.core.ktx)
@@ -38,6 +28,7 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.activity)
     implementation(libs.compose.coil)
+    implementation(libs.compose.material)
     implementation(libs.compose.material3)
     implementation(libs.compose.navigation)
     implementation(libs.compose.paging)
@@ -54,6 +45,12 @@ dependencies {
     implementation(libs.retrofit.logging)
     implementation(libs.retrofit.moshi)
 
+    implementation(libs.room)
+    implementation(libs.room.ktx)
+    kapt(libs.room.kapt)
+
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
 }
+
+kapt { correctErrorTypes = true }

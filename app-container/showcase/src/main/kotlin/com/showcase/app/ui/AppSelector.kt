@@ -34,7 +34,7 @@ import androidx.compose.ui.draw.clip
 internal fun AppSelector(modifier: Modifier = Modifier) {
     val colorScheme = AppTheme.colorScheme
     val appsColorSchemeState = remember {
-        mutableStateListOf(colorScheme, colorScheme, colorScheme)
+        mutableStateListOf(colorScheme, colorScheme, colorScheme, colorScheme)
     }
     val appsPagerState = rememberPagerState(pageCount = { appsColorSchemeState.size })
     val coroutineScope = rememberCoroutineScope()
