@@ -1,11 +1,14 @@
 package com.rijks.app.data.dto
 
 import com.rijks.app.model.ArtObject
+import kotlinx.serialization.Serializable
 
+@Serializable
 internal data class ArtCollectionDetailDto(
     val artObject: ArtObjectDto,
 )
 
+@Serializable
 internal data class ArtObjectDto(
     val subTitle: String,
     val description: String?,
@@ -24,10 +27,12 @@ internal data class ArtObjectDto(
     )
 }
 
+@Serializable
 internal data class MakerDto(
     val name: String,
 )
 
+@Serializable
 internal data class DatingDto(
     val presentingDate: String
 )

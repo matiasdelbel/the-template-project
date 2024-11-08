@@ -1,12 +1,15 @@
 package com.rijks.app.data.dto
 
 import com.rijks.app.model.ArtObjectOverview
+import kotlinx.serialization.Serializable
 
+@Serializable
 internal data class ArtCollectionDto(
     val count: Long,
     val artObjects: List<ArtObjectOverviewDto>
 )
 
+@Serializable
 internal data class ArtObjectOverviewDto(
     val objectNumber: String,
     val title: String,
@@ -24,6 +27,7 @@ internal data class ArtObjectOverviewDto(
     )
 }
 
+@Serializable
 internal data class WebImageDto(
     val url: String,
 )

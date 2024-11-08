@@ -2,7 +2,7 @@ package com.tmdb.app.data
 
 import androidx.paging.PagingData
 import com.common.data.pagesFlow
-import com.tmdb.app.data.remote.MovieCollectionDataSource
+import com.tmdb.app.data.remote.MoviesDataSource
 import com.tmdb.app.data.remote.NowPlayingMoviesPagingSource
 import com.tmdb.app.data.remote.PopularMoviesPagingSource
 import com.tmdb.app.data.remote.TopRatedMoviesPagingSource
@@ -11,7 +11,7 @@ import com.tmdb.app.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 class MoviesRepository internal constructor(
-    private val dataSource: MovieCollectionDataSource
+    private val dataSource: MoviesDataSource,
 ) {
 
     fun paginatedNowPlayingMovies(): Flow<PagingData<Movie>> =

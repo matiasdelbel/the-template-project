@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
     alias(libs.plugins.android.hilt)
+    alias(libs.plugins.serialization)
 
     kotlin("kapt")
 }
@@ -53,9 +54,11 @@ dependencies {
     implementation(libs.hilt.compose)
     kapt(libs.hilt.compiler)
 
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.logging)
-    implementation(libs.retrofit.moshi)
+    implementation(libs.ktor.client.auth)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.negotiation)
+    implementation(libs.ktor.client.json)
+    implementation(libs.ktor.client.okhttp)
 
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)

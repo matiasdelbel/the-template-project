@@ -45,10 +45,6 @@ dependencies {
     implementation(libs.hilt.compose)
     kapt(libs.hilt.compiler)
 
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.logging)
-    implementation(libs.retrofit.moshi)
-
     implementation(libs.room)
     implementation(libs.room.ktx)
     kapt(libs.room.kapt)

@@ -4,7 +4,6 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import retrofit2.HttpException
 import java.io.IOException
 
 abstract class ListedPagingSource<T : Any> : PagingSource<Int, T>() {
@@ -21,8 +20,6 @@ abstract class ListedPagingSource<T : Any> : PagingSource<Int, T>() {
                 nextKey = if (nextArtObjectIndex > result.count) null else currentPage + 1
             )
         } catch (exception: IOException) {
-            return LoadResult.Error(exception)
-        } catch (exception: HttpException) {
             return LoadResult.Error(exception)
         }
     }
@@ -46,6 +43,3 @@ fun <T: Any> pagesFlow(source: () -> PagingSource<Int, T>) = Pager(
 ).flow
 
 val PagingSource.LoadParams<Int>.currentPage : Int get() = key ?: 1
-
-private const val PAGE_SIZE = 20
-private const val PREFETCH_DISTANCE = 60
