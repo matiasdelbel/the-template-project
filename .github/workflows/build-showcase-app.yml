@@ -1,0 +1,20 @@
+name: Build showcase app
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v2
+        with:
+          api-level: 30
+          build-tools: 30.0.3
+
+      - name: Assemble app
+        run: ./gradlew app-container:showcase:assembleDebug
