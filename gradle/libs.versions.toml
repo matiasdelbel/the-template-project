@@ -1,5 +1,6 @@
 [versions]
-kotlin = "2.0.21"
+kotlin = "2.0.20"
+ktor = "3.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.15.0" }
@@ -23,16 +24,16 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version = "
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version = "2.51.1" }
 hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
 
-moshi = { module = "com.squareup.moshi:moshi-kotlin", version = "1.15.1" }
+ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 
 test-androidx-core = { group = "androidx.test", name = "core", version = "1.6.1" }
 test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "1.8.1" }
 test-junit = { group = "junit", name = "junit", version = "4.13.2" }
 test-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", version = "5.4.0" }
-
-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version = "2.11.0" }
-retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version = "2.11.0" }
-retrofit-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version = "4.12.0" }
 
 room = { module = "androidx.room:room-runtime", version = "2.6.1"}
 room-kapt = { module = "androidx.room:room-compiler", version = "2.6.1" }
@@ -41,9 +42,10 @@ room-ktx = { module = "androidx.room:room-ktx", version = "2.6.1" }
 [plugins]
 com-android-application = { id = "com.android.application", version = "8.7.2" }
 com-android-library = { id = "com.android.library", version = "8.7.2" }
-
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 android-hilt = { id = "com.google.dagger.hilt.android", version = "2.51.1" }
 

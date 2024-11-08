@@ -5,11 +5,11 @@ import com.common.data.currentPage
 import com.tmdb.app.model.Movie
 
 internal class NowPlayingMoviesPagingSource(
-    private val movieCollectionDataSource: MovieCollectionDataSource,
+    private val movieDataSource: MoviesDataSource,
 ) : ListedPagingSource<Movie>() {
 
     override suspend fun loadMore(params: LoadParams<Int>): LoadListingResult<Movie> {
-        val movies = movieCollectionDataSource.nowPlaying(page = params.currentPage)
+        val movies = movieDataSource.nowPlaying(page = params.currentPage)
 
         return LoadListingResult(
             content = movies.results.map { it.toMovie() },

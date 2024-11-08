@@ -1,20 +1,23 @@
 package com.tmdb.app.data.dto
 
-import com.squareup.moshi.Json
 import com.tmdb.app.model.Movie
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 internal data class MovieCollectionDto(
     val results: List<MovieDto>,
     val page: Int,
-    @Json(name = "total_pages") val totalPages: Long,
-    @Json(name = "total_results") val totalResults: Long,
+    @SerialName("total_pages") val totalPages: Long,
+    @SerialName("total_results") val totalResults: Long,
 )
 
+@Serializable
 internal data class MovieDto(
     val id: Long,
     val title: String,
     val overview: String,
-    @Json(name = "poster_path") val posterPath: String,
+    @SerialName("poster_path") val posterPath: String,
 ) {
     fun toMovie(): Movie = Movie(
         id = id,

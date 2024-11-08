@@ -1,24 +1,32 @@
 package com.rijks.app.data.remote
 
+import com.rijks.app.data.di.RijksHttpClient
 import com.rijks.app.data.dto.ArtCollectionDto
 import com.rijks.app.data.dto.ArtCollectionDetailDto
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.http.appendPathSegments
+import javax.inject.Inject
 
-internal interface ArtCollectionDataSource {
+internal class ArtCollectionDataSource  @Inject constructor(
+    @RijksHttpClient private val httpClient: HttpClient,
+) {
 
-    @GET("collection")
-    suspend fun getArtCollection(
-        @Query("p") page: Int,
-        @Query("ps") pageCount: Int,
-        @Query("imgonly") onlyArtObjectsWithImage: Boolean = true,
-        @Query("s") sortedBy: String = "artist"
-    ): ArtCollectionDto
+    suspend fun getArtCollection(page: Int, pageCount: Int): ArtCollectionDto = httpClient
+        .get(urlString = "https://www.rijksmuseum.nl/api/en/collection") {
+            url {
+                parameters.append("p", page.toString())
+                parameters.append("ps", pageCount.toString())
+                parameters.append("imgonly", true.toString())
+            }
+        }
+        .body()
 
 
-    @GET("collection/{objectNumber}")
-    suspend fun getArtCollectionDetail(
-        @Path("objectNumber") objectNumber: String,
-    ): ArtCollectionDetailDto
+    suspend fun getArtCollectionDetail(objectNumber: String): ArtCollectionDetailDto = httpClient
+        .get(urlString = "https://www.rijksmuseum.nl/api/en/collection") {
+            url { appendPathSegments(objectNumber) }
+        }
+        .body()
 }
