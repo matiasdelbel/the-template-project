@@ -1,10 +1,7 @@
-@file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
-
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.android.hilt)
-
-    kotlin("kapt")
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -25,9 +22,5 @@ dependencies {
     implementation(libs.compose.paging)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-}
-
-kapt {
-    correctErrorTypes = true
+    ksp(libs.hilt.compiler)
 }

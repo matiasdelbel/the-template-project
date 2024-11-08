@@ -1,4 +1,3 @@
-@file:Suppress("UnstableApiUsage", "DSL_SCOPE_VIOLATION")
 import java.io.File
 import java.io.FileInputStream
 import java.util.*
@@ -6,10 +5,9 @@ import java.util.*
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
-    alias(libs.plugins.android.hilt)
+    alias(libs.plugins.hilt)
     alias(libs.plugins.serialization)
-
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -52,7 +50,7 @@ dependencies {
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.compose)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.ktor.client.auth)
     implementation(libs.ktor.client.core)
@@ -67,8 +65,4 @@ dependencies {
     testImplementation(libs.test.coroutines)
     testImplementation(libs.test.junit)
     testImplementation (libs.test.mockito)
-}
-
-kapt {
-    correctErrorTypes = true
 }
