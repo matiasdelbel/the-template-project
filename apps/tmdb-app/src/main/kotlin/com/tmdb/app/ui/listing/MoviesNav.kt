@@ -9,6 +9,7 @@ fun NavGraphBuilder.moviesPane() = composable(route = MoviesRoute) {
     val moviesViewModel = hiltViewModel<MoviesViewModel>()
 
     Movies(
+        nowPlaying = moviesViewModel.nowPlaying.collectAsLazyPagingItems(),
         populars = moviesViewModel.populars.collectAsLazyPagingItems(),
         topRated = moviesViewModel.topRated.collectAsLazyPagingItems(),
         upcoming = moviesViewModel.upcoming.collectAsLazyPagingItems(),

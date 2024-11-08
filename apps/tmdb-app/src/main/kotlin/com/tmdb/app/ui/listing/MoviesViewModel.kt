@@ -11,6 +11,11 @@ import javax.inject.Inject
 @HiltViewModel
 class MoviesViewModel @Inject constructor(repository: MoviesRepository) : ViewModel() {
 
+    val nowPlaying = repository
+        .paginatedNowPlayingMovies()
+        .distinctUntilChanged()
+        .cachedIn(viewModelScope)
+
     val populars = repository
         .paginatedPopularMovies()
         .distinctUntilChanged()
