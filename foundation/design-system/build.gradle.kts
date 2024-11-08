@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {

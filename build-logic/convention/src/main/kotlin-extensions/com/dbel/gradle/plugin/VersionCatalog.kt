@@ -8,8 +8,8 @@ val VersionCatalog.androidApplicationPluginId: String
 val VersionCatalog.androidLibraryPluginId: String
     get() = findPlugin("com-android-library").get().get().pluginId
 
+val VersionCatalog.composeCompilerPluginId: String
+    get() = findPlugin("compose-compiler").get().get().pluginId
+
 val VersionCatalog.kotlinAndroidPluginId: String
     get() = findPlugin("org-jetbrains-kotlin-android").get().get().pluginId
-
-val VersionCatalog.composeVersion: String
-    get() = findVersion("compose").get().toString()

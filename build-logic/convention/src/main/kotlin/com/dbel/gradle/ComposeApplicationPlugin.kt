@@ -2,11 +2,10 @@ package com.dbel.gradle
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.BuildFeatures
-import com.android.build.api.dsl.ComposeOptions
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import com.dbel.gradle.plugin.build
-import com.dbel.gradle.plugin.composeVersion
+import com.dbel.gradle.plugin.composeCompilerPluginId
 import com.dbel.gradle.plugin.versionCatalog
 import org.gradle.kotlin.dsl.getByType
 
@@ -17,18 +16,12 @@ import org.gradle.kotlin.dsl.getByType
 class ComposeApplicationPlugin : Plugin<Project> {
 
     override fun apply(project: Project) = project.build {
-        buildFeatures { compose = true }
+        with(pluginManager) { apply(versionCatalog.composeCompilerPluginId) }
 
-        composeOptions { kotlinCompilerExtensionVersion = versionCatalog.composeVersion }
+        buildFeatures { compose = true }
     }
 
     private fun Project.buildFeatures(block: BuildFeatures.() -> Unit) = extensions
         .getByType<ApplicationExtension>()
         .apply { buildFeatures{ block() } }
-
-    private fun Project.composeOptions(block: ComposeOptions.() -> Unit) {
-        extensions
-            .getByType<ApplicationExtension>()
-            .apply { composeOptions { block() } }
-    }
 }
