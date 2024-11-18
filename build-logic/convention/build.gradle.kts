@@ -11,7 +11,7 @@ java {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:8.5.1")
+    implementation("com.android.tools.build:gradle:8.7.2")
     
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.21")
