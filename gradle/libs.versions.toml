@@ -1,8 +1,12 @@
 [versions]
+agp = "8.7.2"
+
 kotlin = "2.0.21"
 ktor = "3.0.1"
 
 [libraries]
+android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.15.0" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version = "2.8.7" }
 
@@ -24,6 +28,9 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version = "
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version = "2.51.1" }
 hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
 
+kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
@@ -40,8 +47,8 @@ room-kapt = { module = "androidx.room:room-compiler", version = "2.6.1" }
 room-ktx = { module = "androidx.room:room-ktx", version = "2.6.1" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version = "8.7.2" }
-com-android-library = { id = "com.android.library", version = "8.7.2" }
+com-android-application = { id = "com.android.application", version.ref = "agp" }
+com-android-library = { id = "com.android.library", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
@@ -49,7 +56,7 @@ hilt = { id = "com.google.dagger.hilt.android", version = "2.51.1" }
 ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.28" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
-# Convention plugins
+# [convention-plugins]
 android-application = { id = "com.dbel.android.application", version = "1.0.0" }
 android-application-compose = { id = "com.dbel.android.application.compose", version = "1.0.0" }
 

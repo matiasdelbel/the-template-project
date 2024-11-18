@@ -2,7 +2,6 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.dbel.gradle.plugins"
 sourceSets["main"].java.srcDirs("src/main/kotlin-extensions")
 
 java {
@@ -11,15 +10,13 @@ java {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:8.7.2")
-    
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.21")
+    implementation(libs.android.gradle)
+    implementation(libs.kotlin.gradle)
+    implementation(libs.kotlin.stdlib)
 }
 
 gradlePlugin {
     plugins {
-
         /* Set up the basic configuration for an android app. */
         register("com.dbel.android.application") {
             id = "com.dbel.android.application"
