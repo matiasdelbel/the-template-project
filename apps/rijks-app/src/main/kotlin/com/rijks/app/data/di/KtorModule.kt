@@ -1,7 +1,7 @@
 package com.rijks.app.data.di
 
 import android.content.Context
-import com.tmdb.app.R
+import com.rijks.app.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

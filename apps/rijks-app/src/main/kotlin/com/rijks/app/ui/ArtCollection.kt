@@ -22,7 +22,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.dbel.design.system.theme.AppTheme
 import com.rijks.app.model.ArtObjectOverview
-import com.tmdb.app.R
+import com.rijks.app.R
 
 @Composable
 fun ArtCollection(

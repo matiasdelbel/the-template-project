@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import com.dbel.design.system.theme.AppTheme
 import com.dbel.design.system.component.NavHostScaffold
 import com.dbel.design.system.component.TopAppBar
-import com.tmdb.app.R
+import com.rijks.app.R
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {

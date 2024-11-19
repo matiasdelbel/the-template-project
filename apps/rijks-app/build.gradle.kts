@@ -1,7 +1,3 @@
-import java.io.File
-import java.io.FileInputStream
-import java.util.*
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
@@ -11,15 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.tmdb.app"
+    namespace = "com.rijks.app"
 
     defaultConfig {
         vectorDrawables { useSupportLibrary = true }
 
-        val localPrperties = Properties().apply { load(FileInputStream(File(rootProject.rootDir, "local.properties"))) }
-        val tmdbApiKey: String = localPrperties.getProperty("rijks.api.key")
-
-        resValue("string", "rijks_api_key", tmdbApiKey)
+        val rijksApiKey = System.getenv("API_KEY_RIJKS") ?: properties["API_KEY_RIJKS"] as String
+        resValue("string", "rijks_api_key", rijksApiKey)
     }
 
     buildTypes {
