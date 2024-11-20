@@ -23,4 +23,7 @@ jobs:
           build-tools: 35.0.0
 
       - name: Assemble app
+        env:
+          API_KEY_RIJKS: ${{ secrets.API_KEY_RIJKS }}
+          API_KEY_TMDB: ${{ secrets.API_KEY_TMDB }}
         run: ./gradlew app-container:showcase:assembleDebug

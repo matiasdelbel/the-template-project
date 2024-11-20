@@ -1,7 +1,3 @@
-import java.io.File
-import java.io.FileInputStream
-import java.util.*
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.android.library.compose)
@@ -16,8 +12,7 @@ android {
     defaultConfig {
         vectorDrawables { useSupportLibrary = true }
 
-        val localPrperties = Properties().apply { load(FileInputStream(File(rootProject.rootDir, "local.properties"))) }
-        val tmdbApiKey: String = localPrperties.getProperty("tmdb.api.key")
+        val tmdbApiKey = System.getenv("API_KEY_TMDB") ?: properties["API_KEY_TMDB"] as String
         resValue("string", "tmdb_api_key", tmdbApiKey)
     }
 
