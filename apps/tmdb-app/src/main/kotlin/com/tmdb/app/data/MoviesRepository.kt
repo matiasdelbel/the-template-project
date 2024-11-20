@@ -1,7 +1,7 @@
 package com.tmdb.app.data
 
 import androidx.paging.PagingData
-import com.common.data.pagesFlow
+import com.dbel.data.pagesFlow
 import com.tmdb.app.data.remote.MoviesDataSource
 import com.tmdb.app.data.remote.NowPlayingMoviesPagingSource
 import com.tmdb.app.data.remote.PopularMoviesPagingSource

@@ -1,4 +1,4 @@
-package com.common.data.di
+package com.dbel.data.di
 
 import dagger.Module
 import dagger.Provides
@@ -11,7 +11,6 @@ import javax.inject.Qualifier
 @Module
 @InstallIn(SingletonComponent::class)
 internal class CoroutineModule {
-
 
     @Provides
     @IODispatcher

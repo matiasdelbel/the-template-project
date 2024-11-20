@@ -7,26 +7,23 @@ ktor = "3.0.1"
 [libraries]
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.15.0" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version = "2.8.7" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.15.0" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.8.7" }
 
-compose-bom = { group = "androidx.compose", name = "compose-bom", version = "2024.10.01" }
-compose-activity = { group = "androidx.activity", name = "activity-compose", version = "1.9.3" }
-compose-coil = { group = "io.coil-kt", name = "coil-compose", version = "2.4.0" }
-compose-material = { module = "androidx.compose.material:material", version = "1.7.5" }
-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version = "2.8.3" }
-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-compose-paging = { group = "androidx.paging", name = "paging-compose", version = "3.3.2" }
-compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version = "2.8.7" }
+compose-bom = { module = "androidx.compose:compose-bom", version = "2024.11.00" }
+compose-activity = { module = "androidx.activity:activity-compose", version = "1.9.3" }
+compose-coil = { module = "io.coil-kt:coil-compose", version = "2.4.0" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version = "2.8.4" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-paging = { module = "androidx.paging:paging-compose", version = "3.3.4" }
+compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version = "2.8.7" }
 
-hilt-android = { group = "com.google.dagger", name = "hilt-android", version = "2.51.1" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version = "2.51.1" }
-hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
+hilt-android = { module = "com.google.dagger:hilt-android", version = "2.51.1" }
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version = "2.51.1" }
+hilt-compose = { module = "androidx.hilt:hilt-navigation-compose", version = "1.2.0" }
 
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -37,13 +34,8 @@ ktor-client-negotiation = { module = "io.ktor:ktor-client-content-negotiation", 
 ktor-client-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 
-test-androidx-core = { group = "androidx.test", name = "core", version = "1.6.1" }
-test-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version = "1.8.1" }
-test-junit = { group = "junit", name = "junit", version = "4.13.2" }
-test-mockito = { group = "org.mockito.kotlin", name = "mockito-kotlin", version = "5.4.0" }
-
-room = { module = "androidx.room:room-runtime", version = "2.6.1"}
-room-kapt = { module = "androidx.room:room-compiler", version = "2.6.1" }
+room = { module = "androidx.room:room-runtime", version = "2.6.1" }
+room-compiler = { module = "androidx.room:room-compiler", version = "2.6.1" }
 room-ktx = { module = "androidx.room:room-ktx", version = "2.6.1" }
 
 [plugins]
@@ -57,8 +49,36 @@ ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.28" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 # [convention-plugins]
-android-application = { id = "com.dbel.android.application", version = "1.0.0" }
-android-application-compose = { id = "com.dbel.android.application.compose", version = "1.0.0" }
+application = { id = "com.dbel.android.application", version = "1.0.0" }
+application-compose = { id = "com.dbel.android.application.compose", version = "1.0.0" }
 
-android-library = { id = "com.dbel.android.library", version = "1.0.0" }
-android-library-compose = { id = "com.dbel.android.library.compose", version = "1.0.0" }
+library = { id = "com.dbel.android.library", version = "1.0.0" }
+library-compose = { id = "com.dbel.android.library.compose", version = "1.0.0" }
+
+[bundles]
+compose = [
+    "compose-coil",
+    "compose-material3",
+    "compose-navigation",
+    "compose-paging",
+    "compose-ui",
+    "compose-ui-tooling-preview",
+]
+
+hilt = [
+    "hilt-android",
+    "hilt-compose"
+]
+
+ktor = [
+    "ktor-client-auth",
+    "ktor-client-core",
+    "ktor-client-negotiation",
+    "ktor-client-json",
+    "ktor-client-okhttp",
+]
+
+room = [
+    "room",
+    "room-ktx"
+]

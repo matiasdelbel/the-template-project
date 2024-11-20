@@ -1,7 +1,7 @@
 package com.tmdb.app.data.remote
 
-import com.common.data.ListedPagingSource
-import com.common.data.currentPage
+import com.dbel.data.ListedPagingSource
+import com.dbel.data.currentPage
 import com.tmdb.app.model.Movie
 
 internal class UpcomingMoviesPagingSource(

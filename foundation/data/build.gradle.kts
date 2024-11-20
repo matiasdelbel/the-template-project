@@ -1,11 +1,11 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.library)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.common.data"
+    namespace = "com.dbel.data"
 
     buildTypes {
         release {
@@ -16,9 +16,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-
     implementation(libs.compose.paging)
 
     implementation(libs.hilt.android)

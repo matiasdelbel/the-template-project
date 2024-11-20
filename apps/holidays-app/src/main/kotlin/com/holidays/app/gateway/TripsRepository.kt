@@ -1,6 +1,6 @@
 package com.holidays.app.gateway
 
-import com.common.data.di.IODispatcher
+import com.dbel.data.di.IODispatcher
 import com.holidays.app.gateway.database.TripDao
 import com.holidays.app.gateway.database.TripLinksDao
 import com.holidays.app.gateway.dto.TripDto

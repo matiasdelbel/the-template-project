@@ -1,4 +1,4 @@
-package com.common.data
+package com.dbel.data
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

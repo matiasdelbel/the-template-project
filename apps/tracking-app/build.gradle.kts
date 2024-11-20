@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.android.library.compose)
+    alias(libs.plugins.library)
+    alias(libs.plugins.library.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
@@ -8,9 +8,7 @@ plugins {
 android {
     namespace = "com.tracking.app"
 
-    defaultConfig {
-        vectorDrawables { useSupportLibrary = true }
-    }
+    defaultConfig { vectorDrawables { useSupportLibrary = true } }
 
     buildTypes {
         release {
@@ -21,38 +19,18 @@ android {
 }
 
 dependencies {
-    implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-
     implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.compose)
     implementation(libs.compose.activity)
-    implementation(libs.compose.coil)
-    implementation(libs.compose.material)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.navigation)
-    implementation(libs.compose.paging)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.graphics)
-    implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.viewmodel)
+    debugImplementation(libs.compose.ui.tooling)
 
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.compose)
+    implementation(libs.bundles.hilt)
     ksp(libs.hilt.compiler)
 
-    implementation(libs.room)
-    implementation(libs.room.ktx)
-    ksp(libs.room.kapt)
-
-    debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.test.manifest)
-
-    testImplementation(libs.test.androidx.core)
-    testImplementation(libs.test.coroutines)
-    testImplementation(libs.test.junit)
-    testImplementation (libs.test.mockito)
+    implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
 }
 
