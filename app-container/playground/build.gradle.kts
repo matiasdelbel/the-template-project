@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.holidaysApp) // The module to lunch in the playground
+    implementation(projects.apps.tmdbApp) // The module to lunch in the playground
     implementation(projects.foundation.designSystem)
 
     implementation(platform(libs.compose.bom))

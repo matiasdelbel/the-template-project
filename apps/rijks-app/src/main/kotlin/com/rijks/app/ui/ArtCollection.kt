@@ -2,7 +2,10 @@ package com.rijks.app.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,15 +14,20 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.isTraversalGroup
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import com.dbel.design.system.component.SearchPane
 import com.dbel.design.system.theme.AppTheme
 import com.rijks.app.model.ArtObjectOverview
 import com.rijks.app.R
@@ -28,14 +36,44 @@ import com.rijks.app.R
 fun ArtCollection(
     artObjects: LazyPagingItems<ArtObjectOverview>,
     modifier: Modifier = Modifier,
+    query: String,
+    results: LazyPagingItems<ArtObjectOverview>,
+    onQueryChange: (query: String) -> Unit,
     onArtObjectSelected: (artObject: ArtObjectOverview) -> Unit = { },
 ) {
-    LazyColumn(modifier = modifier) {
+    Box(
+        modifier = modifier.fillMaxSize().semantics { isTraversalGroup = true }
+    ) {
+        SearchPane(
+            query = query,
+            content = { ArtCollection(results, onArtObjectSelected = onArtObjectSelected) },
+            onQueryChange = onQueryChange,
+            modifier = Modifier.align(Alignment.TopCenter).semantics { traversalIndex = 0f },
+        )
+
+        ArtCollection(artObjects, onArtObjectSelected = onArtObjectSelected)
+    }
+}
+
+@Composable
+private fun ArtCollection(
+    artObjects: LazyPagingItems<ArtObjectOverview>,
+    modifier: Modifier = Modifier,
+    onArtObjectSelected: (artObject: ArtObjectOverview) -> Unit = { },
+) {
+    LazyColumn(
+        contentPadding = PaddingValues(
+            start = AppTheme.spacers.sm,
+            end = AppTheme.spacers.sm,
+            bottom = AppTheme.spacers.sm,
+            top = 72.dp
+        ),
+    ) {
         items(artObjects.itemCount) { index ->
             val artObject = artObjects[index]!!
             val previousArtObject = if (index == 0) null else artObjects[index - 1]!!
             if (artObject.principalOrFirstMaker != previousArtObject?.principalOrFirstMaker)
-              Artist(name = artObject.principalOrFirstMaker)
+                Artist(name = artObject.principalOrFirstMaker)
 
             ArtObjectOverview(
                 imageUrl = artObject.imageUrl,

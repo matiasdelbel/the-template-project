@@ -18,11 +18,21 @@ internal class ArtCollectionDataSource  @Inject constructor(
             url {
                 parameters.append("p", page.toString())
                 parameters.append("ps", pageCount.toString())
-                parameters.append("imgonly", true.toString())
+                parameters.append("imgonly", "true")
             }
         }
         .body()
 
+    suspend fun search(query: String, page: Int, pageCount: Int): ArtCollectionDto = httpClient
+        .get(urlString = "https://www.rijksmuseum.nl/api/en/collection") {
+            url {
+                parameters.append("p", page.toString())
+                parameters.append("ps", pageCount.toString())
+                parameters.append("imgonly", "true")
+                parameters.append("q", query)
+            }
+        }
+        .body()
 
     suspend fun getArtCollectionDetail(objectNumber: String): ArtCollectionDetailDto = httpClient
         .get(urlString = "https://www.rijksmuseum.nl/api/en/collection") {

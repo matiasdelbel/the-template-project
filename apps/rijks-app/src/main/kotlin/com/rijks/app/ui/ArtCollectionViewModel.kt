@@ -14,7 +14,7 @@ class ArtCollectionViewModel @Inject constructor(
 ) : ViewModel() {
 
     val artObjects = repository
-        .paginatedArtObjects()
+        .collections()
         .distinctUntilChanged()
         .cachedIn(viewModelScope)
 }
