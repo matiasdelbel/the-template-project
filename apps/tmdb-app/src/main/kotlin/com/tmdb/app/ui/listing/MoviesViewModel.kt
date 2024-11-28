@@ -17,17 +17,17 @@ class MoviesViewModel @Inject constructor(repository: MoviesRepository) : ViewMo
         .cachedIn(viewModelScope)
 
     val populars = repository
-        .paginatedPopularMovies()
+        .popularMovies()
         .distinctUntilChanged()
         .cachedIn(viewModelScope)
 
     val topRated = repository
-        .paginatedTopRatedMovies()
+        .topRatedMovies()
         .distinctUntilChanged()
         .cachedIn(viewModelScope)
 
     val upcoming = repository
-        .paginatedUpcomingMovies()
+        .upcomingMovies()
         .distinctUntilChanged()
         .cachedIn(viewModelScope)
 }

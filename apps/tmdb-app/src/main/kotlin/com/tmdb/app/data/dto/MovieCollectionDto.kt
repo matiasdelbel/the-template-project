@@ -17,7 +17,7 @@ internal data class MovieDto(
     val id: Long,
     val title: String,
     val overview: String,
-    @SerialName("poster_path") val posterPath: String,
+    @SerialName("poster_path") val posterPath: String?,
 ) {
     fun toMovie(): Movie = Movie(
         id = id,

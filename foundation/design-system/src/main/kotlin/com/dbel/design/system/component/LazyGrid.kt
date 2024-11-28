@@ -1,7 +1,9 @@
 package com.dbel.design.system.component
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
@@ -14,6 +16,8 @@ import com.dbel.design.system.theme.AppTheme
 fun <T : Any> PagingGrid(
     items: LazyPagingItems<T>,
     modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(all = AppTheme.spacers.none),
+    gridHeader: @Composable () -> Unit,
     transformation: @Composable (T) -> Unit,
     loadStateAppend: LazyGridScope.(LazyPagingItems<T>) -> Unit = {},
     loadStateAppendError: LazyGridScope.(LazyPagingItems<T>) -> Unit = {},
@@ -23,8 +27,11 @@ fun <T : Any> PagingGrid(
     columns = GridCells.Fixed(count = 3),
     horizontalArrangement = Arrangement.spacedBy(space = AppTheme.spacers.xs),
     verticalArrangement = Arrangement.spacedBy(space = AppTheme.spacers.xs),
+    contentPadding = contentPadding,
     modifier = modifier
 ) {
+    item(span = { GridItemSpan(maxLineSpan) }) { gridHeader() }
+
     items(items.itemCount) { index ->
         val item = items[index]!!
         transformation(item)
