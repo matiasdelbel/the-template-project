@@ -1,7 +1,7 @@
 package com.tracking.app.gateway
 
 import com.tracking.app.gateway.database.WorkoutDao
-import com.tracking.app.gateway.dto.toRunningDto
+import com.tracking.app.gateway.database.dto.toRunningDto
 import com.tracking.app.model.Workout
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.holidays.app.gateway.dto.PlaceDto
+import com.holidays.app.gateway.database.dto.PlaceDto
 import kotlinx.coroutines.flow.Flow
 
 @Dao

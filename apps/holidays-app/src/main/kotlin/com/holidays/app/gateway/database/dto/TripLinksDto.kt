@@ -1,4 +1,4 @@
-package com.holidays.app.gateway.dto
+package com.holidays.app.gateway.database.dto
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

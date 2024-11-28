@@ -3,8 +3,8 @@ package com.holidays.app.gateway
 import com.dbel.data.di.IODispatcher
 import com.holidays.app.gateway.database.TripDao
 import com.holidays.app.gateway.database.TripLinksDao
-import com.holidays.app.gateway.dto.TripDto
-import com.holidays.app.gateway.dto.toTripDto
+import com.holidays.app.gateway.database.dto.TripDto
+import com.holidays.app.gateway.database.dto.toTripDto
 import com.holidays.app.model.Trip
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.async

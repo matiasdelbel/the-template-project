@@ -1,7 +1,7 @@
 package com.tmdb.app.data.remote
 
 import com.tmdb.app.data.di.TMdbHttpClient
-import com.tmdb.app.data.dto.MovieCollectionDto
+import com.tmdb.app.data.remote.dto.MovieCollectionDto
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

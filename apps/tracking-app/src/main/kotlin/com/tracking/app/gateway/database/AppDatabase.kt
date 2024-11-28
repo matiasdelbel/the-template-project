@@ -3,7 +3,7 @@ package com.tracking.app.gateway.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.tracking.app.gateway.dto.RunningDto
+import com.tracking.app.gateway.database.dto.RunningDto
 
 @Database(
     entities = [RunningDto::class],

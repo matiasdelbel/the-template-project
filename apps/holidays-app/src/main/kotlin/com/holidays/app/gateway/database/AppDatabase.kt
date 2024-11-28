@@ -2,9 +2,9 @@ package com.holidays.app.gateway.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.holidays.app.gateway.dto.PlaceDto
-import com.holidays.app.gateway.dto.TripDto
-import com.holidays.app.gateway.dto.TripLinksDto
+import com.holidays.app.gateway.database.dto.PlaceDto
+import com.holidays.app.gateway.database.dto.TripDto
+import com.holidays.app.gateway.database.dto.TripLinksDto
 
 @Database(
     entities = [

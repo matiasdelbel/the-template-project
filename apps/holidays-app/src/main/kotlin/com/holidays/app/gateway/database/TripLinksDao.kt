@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.holidays.app.gateway.dto.TripLinksDto
+import com.holidays.app.gateway.database.dto.TripLinksDto
 
 @Dao
 interface TripLinksDao {

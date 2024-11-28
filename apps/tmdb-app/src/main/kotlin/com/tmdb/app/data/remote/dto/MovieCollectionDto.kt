@@ -1,4 +1,4 @@
-package com.tmdb.app.data.dto
+package com.tmdb.app.data.remote.dto
 
 import com.tmdb.app.model.Movie
 import kotlinx.serialization.SerialName

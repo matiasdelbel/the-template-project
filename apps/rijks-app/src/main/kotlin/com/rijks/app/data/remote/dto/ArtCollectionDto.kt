@@ -1,4 +1,4 @@
-package com.rijks.app.data.dto
+package com.rijks.app.data.remote.dto
 
 import com.rijks.app.model.ArtObjectOverview
 import kotlinx.serialization.Serializable

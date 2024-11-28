@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.tracking.app.gateway.dto.RunningDto
+import com.tracking.app.gateway.database.dto.RunningDto
 import kotlinx.coroutines.flow.Flow
 
 @Dao

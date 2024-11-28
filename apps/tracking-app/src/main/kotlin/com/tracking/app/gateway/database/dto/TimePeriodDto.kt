@@ -1,4 +1,4 @@
-package com.tracking.app.gateway.dto
+package com.tracking.app.gateway.database.dto
 
 import androidx.room.ColumnInfo
 import com.tracking.app.model.TimePeriod
