@@ -23,7 +23,7 @@ internal class ArtObjectArgs(
     )
 }
 
-fun NavGraphBuilder.artObjectScreen() = composable(
+fun NavGraphBuilder.artObjectPane() = composable(
     route = "$ArtObjectRoute/{$ArtObjectNumberArg}?$ArtObjectTitleArg={$ArtObjectTitleArg}&$ArtObjectImageUrlArg={$ArtObjectImageUrlArg}",
     arguments = listOf(
         navArgument(name = ArtObjectNumberArg) {
@@ -42,7 +42,7 @@ fun NavGraphBuilder.artObjectScreen() = composable(
     val artObjectViewModel: ArtObjectViewModel = hiltViewModel()
     val uiState by artObjectViewModel.uiState.collectAsState()
 
-    ArtObject(uiState) { artObjectViewModel.obtainArtObject() }
+    ArtObjectPane(uiState) { artObjectViewModel.obtainArtObject() }
 }
 
 fun NavController.navigateToArtObject(artObject: ArtObjectOverview) {

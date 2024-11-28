@@ -11,10 +11,13 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,6 +30,21 @@ fun SearchPane(
 ) {
     var expanded = remember { mutableStateOf(value = false) }
 
+    // Workaround because the search bar never lost it focus
+    TextField(
+        "",
+        { },
+        colors = TextFieldDefaults.colors(
+            focusedTextColor = Color.Transparent,
+            unfocusedTextColor = Color.Transparent,
+            focusedContainerColor = Color.Transparent,
+            unfocusedContainerColor = Color.Transparent,
+            cursorColor = Color.Transparent,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor =Color.Transparent,
+        ),
+    )
+
     SearchBar(
         inputField = {
             SearchBarDefaults.InputField(
@@ -34,7 +52,6 @@ fun SearchPane(
                 onQueryChange = onQueryChange,
                 onSearch = { expanded.value = false },
                 expanded = expanded.value,
-                enabled = false,
                 onExpandedChange = { expanded.value = it },
                 placeholder = { Text(placeholder) },
                 leadingIcon = {

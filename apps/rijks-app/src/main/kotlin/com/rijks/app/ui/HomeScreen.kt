@@ -13,6 +13,11 @@ fun HomeScreen(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     NavHostScaffold(
         navController = navController,
         startRoute = ArtCollectionRoute,
-        builder = { rijksScreens(navController)  },
+        builder = {
+            artCollectionPane(
+                onArtObjectSelected = { artObject -> navController.navigateToArtObject(artObject) }
+            )
+            artObjectPane()
+        },
     )
 }

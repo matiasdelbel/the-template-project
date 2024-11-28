@@ -25,7 +25,7 @@ import com.dbel.design.system.theme.AppTheme
 import com.rijks.app.R
 
 @Composable
-fun ArtObject(
+fun ArtObjectPane(
     uiState: ArtObjectViewModel.UiState,
     modifier: Modifier = Modifier,
     onTryAgain: () -> Unit = {},

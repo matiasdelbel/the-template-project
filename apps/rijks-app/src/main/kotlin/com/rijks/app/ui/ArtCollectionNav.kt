@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.rijks.app.model.ArtObjectOverview
 
-fun NavGraphBuilder.artCollectionScreen(
+fun NavGraphBuilder.artCollectionPane(
     onArtObjectSelected: (artObject: ArtObjectOverview) -> Unit
 ) = composable(
     route = ArtCollectionRoute
@@ -17,7 +17,7 @@ fun NavGraphBuilder.artCollectionScreen(
 
     val artObjects = artCollectionViewModel.artObjects.collectAsLazyPagingItems()
 
-    ArtCollection(
+    ArtCollectionPane(
         artObjects = artObjects,
         query = searchViewModel.query.collectAsState().value,
         results = searchViewModel.results.collectAsLazyPagingItems(),

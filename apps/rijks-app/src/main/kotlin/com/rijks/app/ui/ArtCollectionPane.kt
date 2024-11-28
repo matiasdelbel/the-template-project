@@ -33,7 +33,7 @@ import com.rijks.app.model.ArtObjectOverview
 import com.rijks.app.R
 
 @Composable
-fun ArtCollection(
+fun ArtCollectionPane(
     artObjects: LazyPagingItems<ArtObjectOverview>,
     modifier: Modifier = Modifier,
     query: String,
