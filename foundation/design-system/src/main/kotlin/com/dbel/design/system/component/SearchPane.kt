@@ -20,7 +20,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun SearchPane(
     query: String,
-    content: @Composable ColumnScope.() -> Unit,
+    placeholder: String,
+    results: @Composable ColumnScope.() -> Unit,
     onQueryChange: (query: String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -35,7 +36,7 @@ fun SearchPane(
                 expanded = expanded.value,
                 enabled = false,
                 onExpandedChange = { expanded.value = it },
-                placeholder = { Text("Search movies") },
+                placeholder = { Text(placeholder) },
                 leadingIcon = {
                     if (expanded.value) IconButton(onClick = { expanded.value = false }) {
                         Icon(Icons.AutoMirrored.Default.ArrowBack, contentDescription = null)
@@ -52,6 +53,6 @@ fun SearchPane(
         expanded = expanded.value,
         onExpandedChange = { expanded.value = it },
         modifier = modifier,
-        content = content
+        content = results
     )
 }

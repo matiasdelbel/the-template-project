@@ -42,8 +42,9 @@ fun MoviesPane(
     ) {
         SearchPane(
             query = query,
-            content = { MoviesGrid(movies = results) },
             onQueryChange = onQueryChange,
+            placeholder = "Search movies...",
+            results = { MoviesGrid(movies = results) },
             modifier = Modifier.align(Alignment.TopCenter).semantics { traversalIndex = 0f },
         )
 

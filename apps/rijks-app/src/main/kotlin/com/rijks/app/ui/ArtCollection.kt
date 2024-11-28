@@ -46,8 +46,9 @@ fun ArtCollection(
     ) {
         SearchPane(
             query = query,
-            content = { ArtCollection(results, onArtObjectSelected = onArtObjectSelected) },
             onQueryChange = onQueryChange,
+            placeholder = "Search a piece of art...",
+            results = { ArtCollection(results, onArtObjectSelected = onArtObjectSelected) },
             modifier = Modifier.align(Alignment.TopCenter).semantics { traversalIndex = 0f },
         )
 
