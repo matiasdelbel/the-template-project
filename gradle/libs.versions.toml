@@ -5,6 +5,7 @@ hilt = "2.52"
 
 kotlin = "2.0.21"
 ktor = "3.0.1"
+runtimeAndroid = "1.5.0"
 
 [libraries]
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -36,6 +37,7 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 room = { module = "androidx.room:room-runtime", version = "2.6.1" }
 room-compiler = { module = "androidx.room:room-compiler", version = "2.6.1" }
 room-ktx = { module = "androidx.room:room-ktx", version = "2.6.1" }
+runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }

@@ -41,7 +41,7 @@ fun SearchPane(
             unfocusedContainerColor = Color.Transparent,
             cursorColor = Color.Transparent,
             focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor =Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
         ),
     )
 
