@@ -32,6 +32,7 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.compose.activity)
     implementation(libs.compose.viewmodel)
+    implementation(libs.runtime.android)
     debugImplementation(libs.compose.ui.tooling)
 
     implementation(libs.bundles.hilt)
