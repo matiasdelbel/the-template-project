@@ -37,7 +37,7 @@ internal fun Movie(
 @Composable
 internal fun MovieCollectionTitle(text: String, modifier: Modifier = Modifier) = Text(
     text = text,
-    style = AppTheme.typography.titleMedium,
+    style = AppTheme.typography.titleLarge,
     modifier = modifier
 )
 

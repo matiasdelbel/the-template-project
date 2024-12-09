@@ -3,9 +3,8 @@ agp = "8.7.3"
 
 hilt = "2.53"
 
-kotlin = "2.0.21"
+kotlin = "2.1.0"
 ktor = "3.0.2"
-runtimeAndroid = "1.5.0"
 
 [libraries]
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -37,7 +36,7 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 room = { module = "androidx.room:room-runtime", version = "2.6.1" }
 room-compiler = { module = "androidx.room:room-compiler", version = "2.6.1" }
 room-ktx = { module = "androidx.room:room-ktx", version = "2.6.1" }
-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
+runtime-android = { module = "androidx.compose.runtime:runtime-android", version = "1.5.0" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
@@ -46,7 +45,7 @@ org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.re
 
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-ksp = { id = "com.google.devtools.ksp", version = "2.0.21-1.0.28" }
+ksp = { id = "com.google.devtools.ksp", version = "2.1.0-1.0.29" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 # [convention-plugins]
