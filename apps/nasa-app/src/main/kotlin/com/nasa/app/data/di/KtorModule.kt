@@ -1,8 +1,8 @@
-package com.rijks.app.data.di
+package com.nasa.app.data.di
 
 import android.content.Context
 import com.dbel.data.ktor.DefaultHttpClient
-import com.rijks.app.R
+import com.nasa.app.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,14 +17,14 @@ import javax.inject.Qualifier
 internal class KtorModule {
 
     @Provides
-    @RijksHttpClient
+    @NasaHttpClient
     fun provideHttpClient(@ApplicationContext context: Context): HttpClient = DefaultHttpClient(
         interceptor = { request ->
-            request.parameter("key", context.getString(R.string.rijks_api_key))
+            request.parameter("api_key", context.getString(R.string.nasa_api_key))
         }
     )
 }
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class RijksHttpClient
+annotation class NasaHttpClient

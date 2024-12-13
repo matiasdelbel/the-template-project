@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.dbel.design.system.theme.AppTheme
-import com.tmdb.app.ui.home.TMdbHome
+import com.nasa.app.ui.NasaHome
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
  * The main composable function from the app using the container.
  */
 @Composable
-private fun AppContent() = TMdbHome()
+private fun AppContent() = NasaHome()
 
 @Preview(showBackground = true)
 @Composable

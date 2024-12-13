@@ -22,8 +22,9 @@ fun AppHeader(
         text = when (page) {
             0 -> stringResource(id = R.string.rijks_app_name)
             1 -> stringResource(id = R.string.tmdb_app_name)
-            2 -> stringResource(id = R.string.tracking_app_name)
-            3 -> stringResource(id = R.string.holidays_app_name)
+            2 -> stringResource(id = R.string.nasa_app_name)
+            3 -> stringResource(id = R.string.tracking_app_name)
+            4 -> stringResource(id = R.string.holidays_app_name)
             else -> error("Invalid page: $page")
         },
         style = AppTheme.typography.titleMedium
@@ -33,8 +34,9 @@ fun AppHeader(
         text = when (page) {
             0 -> stringResource(id = R.string.rijks_app_description)
             1 -> stringResource(id = R.string.tmdb_app_description)
-            2 -> stringResource(id = R.string.tracking_app_description)
-            3 -> stringResource(id = R.string.holidays_app_description)
+            2 -> stringResource(id = R.string.nasa_app_description)
+            3 -> stringResource(id = R.string.tracking_app_description)
+            4 -> stringResource(id = R.string.holidays_app_description)
             else -> error("Invalid page: $page")
         },
         modifier = Modifier.padding(top = AppTheme.spacers.sm)

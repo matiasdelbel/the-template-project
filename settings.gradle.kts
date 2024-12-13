@@ -31,9 +31,12 @@ include(
     "foundation:data",
     "foundation:design-system",
 
-    /* App modules */
+    /* Form apps modules */
     "apps:holidays-app",
+    "apps:tracking-app",
+
+    /* Listing App modules */
+    "apps:nasa-app",
     "apps:rijks-app",
     "apps:tmdb-app",
-    "apps:tracking-app",
 )

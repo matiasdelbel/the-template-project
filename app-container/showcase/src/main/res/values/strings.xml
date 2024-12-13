@@ -4,6 +4,9 @@
     <string name="app_selector_launch">Launch</string>
     <string name="app_selector_colors">Colors</string>
 
+    <string name="nasa_app_name">NASA</string>
+    <string name="nasa_app_description">NASA provides images from planet Earth and the space by free. Discover the space using this application.</string>
+
     <string name="rijks_app_name">Rijksmuseum</string>
     <string name="rijks_app_description">The Rijksmuseum is a national museum of the Netherlands dedicated to Dutch arts and history. Discover they art collection in this app.</string>
 

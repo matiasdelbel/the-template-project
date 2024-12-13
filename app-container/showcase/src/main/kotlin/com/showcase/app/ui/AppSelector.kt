@@ -36,7 +36,7 @@ internal fun AppSelector(modifier: Modifier = Modifier) {
     val appsColorSchemeState = remember {
         mutableStateListOf(colorScheme, colorScheme, colorScheme, colorScheme)
     }
-    val appsPagerState = rememberPagerState(pageCount = { appsColorSchemeState.size })
+    val appsPagerState = rememberPagerState(pageCount = { 5 })
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(

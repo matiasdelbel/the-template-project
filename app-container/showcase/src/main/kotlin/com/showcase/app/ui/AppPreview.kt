@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.dbel.design.system.theme.AppTheme
 import com.holidays.app.ui.home.HolidaysHome
+import com.nasa.app.ui.NasaHome
 import com.tracking.app.ui.TrackingAppContent
 import com.tmdb.app.ui.home.TMdbHome
 import com.rijks.app.ui.HomeScreen as RijksHomeScreen
@@ -24,8 +25,9 @@ fun AppPreview(
         when (page) {
             0 -> RijksHomeScreen(modifier)
             1 -> TMdbHome(modifier)
-            2 -> TrackingAppContent(modifier)
-            3 -> HolidaysHome(modifier)
+            2 -> NasaHome(modifier)
+            3 -> TrackingAppContent(modifier)
+            4 -> HolidaysHome(modifier)
             else -> error("Invalid page: $page")
         }
     }

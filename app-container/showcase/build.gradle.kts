@@ -24,6 +24,7 @@ android {
 
 dependencies {
     implementation(projects.apps.holidaysApp)
+    implementation(projects.apps.nasaApp)
     implementation(projects.apps.rijksApp)
     implementation(projects.apps.tmdbApp)
     implementation(projects.apps.trackingApp)

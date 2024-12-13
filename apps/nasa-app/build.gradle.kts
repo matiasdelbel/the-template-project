@@ -1,17 +1,20 @@
 plugins {
-    alias(libs.plugins.application)
-    alias(libs.plugins.application.compose)
+    alias(libs.plugins.library)
+    alias(libs.plugins.library.compose)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.serialization)
     alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.template.playground"
+    namespace = "com.nasa.app"
 
     defaultConfig {
-        applicationId = "com.template.playground"
-        versionCode = 1
-        versionName = "1.0"
+        resValue(
+            /* type = */ "string",
+            /* name = */ "nasa_api_key",
+            /* value = */ System.getenv("API_KEY_NASA") ?: properties["API_KEY_NASA"] as String
+        )
     }
 
     buildTypes {
@@ -23,7 +26,7 @@ android {
 }
 
 dependencies {
-    implementation(projects.apps.nasaApp) // The module to lunch in the playground
+    implementation(projects.foundation.data)
     implementation(projects.foundation.designSystem)
 
     implementation(platform(libs.compose.bom))
@@ -34,4 +37,6 @@ dependencies {
 
     implementation(libs.bundles.hilt)
     ksp(libs.hilt.compiler)
+
+    implementation(libs.bundles.ktor)
 }
