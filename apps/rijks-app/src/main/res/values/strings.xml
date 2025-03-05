@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Examples App</string>
-
     <string name="rijks_app_name">Rijks App</string>
     <string name="tmdb_app_name">TMdb App</string>
 

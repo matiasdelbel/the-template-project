@@ -18,6 +18,8 @@ interface DayNightColorScheme {
     fun darkColorScheme(): ColorScheme
 }
 
+fun DayNightColorScheme.colorScheme(isDark: Boolean): ColorScheme = if (isDark) darkColorScheme() else lightColorScheme()
+
 @Stable
 object BrownColorScheme : DayNightColorScheme {
 

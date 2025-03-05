@@ -20,8 +20,7 @@ dependencies {
     // region Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
-    implementation(libs.compose.activity)
-    implementation(libs.compose.viewmodel)
+    implementation(libs.bundles.compose.lifecycle)
     debugImplementation(libs.compose.ui.tooling)
     // endregion
 
@@ -30,7 +29,7 @@ dependencies {
     ksp(libs.hilt.compiler)
     // endregion
 
-    // region Local
+    // region Projects
     implementation(projects.apps.holidaysApp)
     implementation(projects.apps.rijksApp)
     implementation(projects.apps.tmdbApp)

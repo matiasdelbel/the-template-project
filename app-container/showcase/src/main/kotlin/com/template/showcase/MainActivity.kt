@@ -1,4 +1,4 @@
-package com.showcase.app
+package com.template.showcase
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.dbel.design.system.theme.AppTheme
-import com.showcase.app.ui.AppSelector
+import com.template.showcase.ui.pane.AppSelector
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

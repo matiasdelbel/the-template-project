@@ -65,6 +65,11 @@ compose = [
     "compose-ui-tooling-preview",
 ]
 
+compose-lifecycle = [
+    "compose-activity",
+    "compose-viewmodel",
+]
+
 hilt = [
     "hilt-android",
     "hilt-compose"

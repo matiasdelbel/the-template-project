@@ -1,5 +1,5 @@
 <resources>
-    <string name="showcase_app_name">Catalog</string>
+    <string name="app_name">Showcase App</string>
 
     <string name="app_selector_launch">Launch</string>
     <string name="app_selector_colors">Colors</string>
