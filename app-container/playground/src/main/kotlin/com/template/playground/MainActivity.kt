@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
 }
 
 /**
- * The main composable function from the app using the container.
+ * Replace the following with your app content.
  */
 @Composable
 private fun AppContent() = TMdbHome()
