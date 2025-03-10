@@ -14,13 +14,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { AppTheme { AppContent() } }
+        setContent { AppTheme { AppSelector() } }
     }
 }
 
-@Composable
-private fun AppContent() = AppSelector()
-
 @Preview(showBackground = true)
 @Composable
-private fun AppPreview() = AppTheme { AppContent() }
+private fun MainActivityContentPreview() = AppTheme { AppSelector() }
