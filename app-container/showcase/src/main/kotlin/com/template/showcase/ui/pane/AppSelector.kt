@@ -17,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.dbel.design.system.component.TopAppBar
 import com.dbel.design.system.theme.AppTheme
 import com.template.showcase.R
 import kotlinx.coroutines.launch
@@ -25,11 +24,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.draw.clip
+import com.dbel.design.system.component.MainTopAppBar
 import com.holidays.app.ui.home.HolidaysHome
 import com.rijks.app.ui.HomeScreen as RijksHomeScreen
 import com.tmdb.app.ui.home.TMdbHome
@@ -59,15 +57,7 @@ internal fun AppSelector(modifier: Modifier = Modifier) {
                     right = AppTheme.spacers.md
                 )
             ),
-        topBar = {
-            TopAppBar(
-                title = stringResource(R.string.app_name),
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = AppTheme.colorScheme.primaryContainer,
-                    titleContentColor = AppTheme.colorScheme.onPrimaryContainer
-                ),
-            )
-        },
+        topBar = { MainTopAppBar(title = stringResource(R.string.app_name)) },
         content = { contentPadding ->
             HorizontalPager(
                 modifier = Modifier.fillMaxSize(),
@@ -80,7 +70,8 @@ internal fun AppSelector(modifier: Modifier = Modifier) {
                         AppHeader(
                             page = page,
                             onColors = { coroutineScope.launch { colorSchemeModalState.show() } },
-                            onLaunch = { TODO() }
+                            onLaunch = { TODO() },
+                            modifier = Modifier.padding(top = AppTheme.spacers.md)
                         )
 
                         AppPreview(
@@ -98,9 +89,6 @@ internal fun AppSelector(modifier: Modifier = Modifier) {
                         )
                     }
 
-                    CompositionLocalProvider() {
-
-                    }
                     if (colorSchemeModalState.isVisible) ColorSchemePickerModal(
                         sheetState = colorSchemeModalState,
                         selected = appsColorSchemeState[page],

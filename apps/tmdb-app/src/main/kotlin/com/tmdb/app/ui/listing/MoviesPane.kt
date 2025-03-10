@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
-import com.dbel.design.system.component.SearchPane
+import com.dbel.design.system.pane.SearchPane
 import com.dbel.design.system.theme.AppTheme
 import com.tmdb.app.model.Movie
 import com.tmdb.app.ui.components.HorizontalMoviesGrid

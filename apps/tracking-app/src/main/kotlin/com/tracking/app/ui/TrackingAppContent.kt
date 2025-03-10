@@ -6,16 +6,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavDestination
 import androidx.navigation.compose.rememberNavController
+import com.dbel.design.system.component.MainTopAppBar
 import com.dbel.design.system.theme.AppTheme
 import com.dbel.design.system.component.NavHostScaffold
-import com.dbel.design.system.component.TopAppBar
+import com.dbel.design.system.component.SubPageTopAppBar
 import com.tracking.app.R
 import com.tracking.app.ui.flows.WeekListSummaryScreenRoute
 import com.tracking.app.ui.profile.ProfileScreenRoute
 import com.tracking.app.ui.workout.HomeScreenRoute
+import kotlin.collections.contains
+import kotlin.collections.get
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TrackingAppContent(modifier: Modifier = Modifier) = Surface(modifier = modifier) {
     val navController = rememberNavController()
@@ -30,20 +33,15 @@ fun TrackingAppContent(modifier: Modifier = Modifier) = Surface(modifier = modif
             bottom = AppTheme.spacers.md,
         ),
         builder = { trackingScreens(navController) },
-        topBar = { destination -> TopBar(destination) { navController.navigateUp()} },
+        topBar = { destination ->
+            val title = topAppBarTitle[destination.route]?.let { stringResource(id = it) } ?: ""
+            val isNavigationIconVisible = destination.route !in routesWithPrimaryTopAppBarColor
+
+            if (isNavigationIconVisible) SubPageTopAppBar(title) { navController.navigateUp() }
+            else MainTopAppBar(title)
+        },
     )
 }
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun TopBar(
-    currentDestination: NavDestination,
-    onNavigateUp: () -> Unit
-) = TopAppBar(
-    title = topAppBarTitle[currentDestination.route]?.let { stringResource(id = it) } ?: "",
-    isNavigationIconVisible = currentDestination.route !in routesWithPrimaryTopAppBarColor,
-    onNavigateUp = onNavigateUp
-)
 
 val routesWithPrimaryTopAppBarColor = listOf(
     HomeScreenRoute,

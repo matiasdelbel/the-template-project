@@ -1,4 +1,4 @@
-package com.dbel.design.system.component
+package com.dbel.design.system.pane
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
