@@ -1,4 +1,4 @@
-package com.dbel.design.system.component
+package com.dbel.design.system.pane
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material.icons.Icons

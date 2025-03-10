@@ -1,6 +1,6 @@
 package com.tmdb.app.ui.listing
 
-import com.dbel.design.system.component.SearchViewModel
+import com.dbel.design.system.pane.SearchViewModel
 import com.tmdb.app.data.MoviesRepository
 import com.tmdb.app.model.Movie
 import dagger.hilt.android.lifecycle.HiltViewModel

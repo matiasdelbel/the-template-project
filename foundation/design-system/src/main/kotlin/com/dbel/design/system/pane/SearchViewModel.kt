@@ -1,4 +1,4 @@
-package com.dbel.design.system.component
+package com.dbel.design.system.pane
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,9 +15,9 @@ import kotlin.time.Duration.Companion.milliseconds
 
 abstract class SearchViewModel<T : Any> : ViewModel() {
 
-    private val _searchQuery = MutableStateFlow(value = "")
+    private val _query = MutableStateFlow(value = "")
 
-    val query: StateFlow<String> = _searchQuery
+    val query: StateFlow<String> = _query
 
     @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
     val results = query
@@ -26,7 +26,7 @@ abstract class SearchViewModel<T : Any> : ViewModel() {
         .cachedIn(viewModelScope)
 
     fun search(query: String) {
-        _searchQuery.value = query
+        _query.value = query
     }
 
     abstract fun doSearch(query: String): Flow<PagingData<T>>

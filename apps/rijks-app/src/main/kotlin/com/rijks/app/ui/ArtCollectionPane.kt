@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import com.dbel.design.system.component.SearchPane
+import com.dbel.design.system.pane.SearchPane
 import com.dbel.design.system.theme.AppTheme
 import com.rijks.app.model.ArtObjectOverview
 import com.rijks.app.R

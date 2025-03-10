@@ -1,6 +1,6 @@
 package com.rijks.app.ui
 
-import com.dbel.design.system.component.SearchViewModel
+import com.dbel.design.system.pane.SearchViewModel
 import com.rijks.app.data.ArtCollectionRepository
 import com.rijks.app.model.ArtObjectOverview
 import dagger.hilt.android.lifecycle.HiltViewModel
