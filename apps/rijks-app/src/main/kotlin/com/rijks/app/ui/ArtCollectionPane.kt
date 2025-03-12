@@ -14,6 +14,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
@@ -27,25 +28,31 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.dbel.design.system.pane.SearchPane
+import com.dbel.design.system.pane.SearchState
 import com.dbel.design.system.theme.AppTheme
 import com.rijks.app.model.ArtObjectOverview
 import com.rijks.app.R
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 
 @Composable
 fun ArtCollectionPane(
     artObjects: LazyPagingItems<ArtObjectOverview>,
+    searchState: StateFlow<SearchState<ArtObjectOverview>>,
     modifier: Modifier = Modifier,
-    query: String,
-    results: LazyPagingItems<ArtObjectOverview>,
     onQueryChange: (query: String) -> Unit,
     onArtObjectSelected: (artObject: ArtObjectOverview) -> Unit = { },
 ) {
     Box(
         modifier = modifier.fillMaxSize().semantics { isTraversalGroup = true }
     ) {
+        val searchStateState = searchState.collectAsState()
+        val results = searchState.map { it.results }.collectAsLazyPagingItems()
+
         SearchPane(
-            query = query,
+            query = searchStateState.value.query,
             onQueryChange = onQueryChange,
             placeholder = "Search a piece of art...",
             results = { ArtCollection(results, onArtObjectSelected = onArtObjectSelected) },

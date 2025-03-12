@@ -8,16 +8,14 @@ import androidx.paging.compose.collectAsLazyPagingItems
 
 fun NavGraphBuilder.moviesPane() = composable(route = MoviesRoute) {
     val moviesViewModel = hiltViewModel<MoviesViewModel>()
-    val searchViewModel = hiltViewModel<SearchMoviesViewModel>()
 
     MoviesPane(
         nowPlaying = moviesViewModel.nowPlaying.collectAsLazyPagingItems(),
         populars = moviesViewModel.populars.collectAsLazyPagingItems(),
         topRated = moviesViewModel.topRated.collectAsLazyPagingItems(),
         upcoming = moviesViewModel.upcoming.collectAsLazyPagingItems(),
-        query = searchViewModel.query.collectAsState().value,
-        results = searchViewModel.results.collectAsLazyPagingItems(),
-        onQueryChange = { searchViewModel.search(query = it) }
+        searchState = moviesViewModel.state,
+        onQueryChange = { moviesViewModel.search(query = it) }
     )
 }
 

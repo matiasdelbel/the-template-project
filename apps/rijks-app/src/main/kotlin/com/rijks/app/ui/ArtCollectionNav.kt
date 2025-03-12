@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.rijks.app.model.ArtObjectOverview
+import kotlinx.coroutines.flow.map
 
 fun NavGraphBuilder.artCollectionPane(
     onArtObjectSelected: (artObject: ArtObjectOverview) -> Unit
@@ -13,15 +14,13 @@ fun NavGraphBuilder.artCollectionPane(
     route = ArtCollectionRoute
 ) {
     val artCollectionViewModel: ArtCollectionViewModel = hiltViewModel()
-    val searchViewModel = hiltViewModel<SearchArtCollectionViewModel>()
 
     val artObjects = artCollectionViewModel.artObjects.collectAsLazyPagingItems()
 
     ArtCollectionPane(
         artObjects = artObjects,
-        query = searchViewModel.query.collectAsState().value,
-        results = searchViewModel.results.collectAsLazyPagingItems(),
-        onQueryChange = { searchViewModel.search(query = it) },
+        searchState = artCollectionViewModel.state,
+        onQueryChange = { artCollectionViewModel.search(query = it) },
         onArtObjectSelected = { artObject -> onArtObjectSelected(artObject) }
     )
 }

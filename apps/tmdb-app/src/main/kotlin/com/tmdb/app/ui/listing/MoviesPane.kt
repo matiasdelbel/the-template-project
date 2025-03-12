@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -25,12 +26,16 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.dbel.design.system.pane.SearchPane
+import com.dbel.design.system.pane.SearchState
 import com.dbel.design.system.theme.AppTheme
 import com.tmdb.app.model.Movie
 import com.tmdb.app.ui.components.HorizontalMoviesGrid
 import com.tmdb.app.ui.components.MovieCollectionTitle
 import com.tmdb.app.ui.components.VerticalMoviesGrid
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 
 @Composable
 fun MoviesPane(
@@ -38,8 +43,7 @@ fun MoviesPane(
     populars: LazyPagingItems<Movie>,
     topRated: LazyPagingItems<Movie>,
     upcoming: LazyPagingItems<Movie>,
-    query: String,
-    results: LazyPagingItems<Movie>,
+    searchState: StateFlow<SearchState<Movie>>,
     onQueryChange: (query: String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -57,8 +61,11 @@ fun MoviesPane(
             .fillMaxSize()
             .nestedScroll(connection)
     ) {
+        val searchStateState = searchState.collectAsState()
+        val results = searchState.map { it.results }.collectAsLazyPagingItems()
+
         SearchPane(
-            query = query,
+            query = searchStateState.value.query,
             onQueryChange = onQueryChange,
             placeholder = "Search movies",
             results = { VerticalMoviesGrid(movies = results) },
