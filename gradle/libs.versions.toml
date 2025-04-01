@@ -9,7 +9,7 @@ ktor = "3.1.1"
 [libraries]
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 
-compose-bom = { module = "androidx.compose:compose-bom", version = "2025.02.00" }
+compose-bom = { module = "androidx.compose:compose-bom", version = "2025.03.01" }
 compose-activity = { module = "androidx.activity:activity-compose", version = "1.10.1" }
 compose-coil = { module = "io.coil-kt:coil-compose", version = "2.4.0" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
